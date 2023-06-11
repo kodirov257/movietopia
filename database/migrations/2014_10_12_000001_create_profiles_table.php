@@ -20,8 +20,15 @@ return new class extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->timestamp('birth_date')->nullable();
+            $table->tinyInteger('gender')->nullable();
+            $table->text('address')->nullable();
             $table->string('avatar')->nullable();
             $table->timestamps();
+        });
+
+        Schema::table('profiles', function (Blueprint $table) {
+            $table->primary('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
         DB::table('profiles')->insert([
