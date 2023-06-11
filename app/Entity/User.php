@@ -12,6 +12,10 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public const STATUS_WAIT = 0;
+    public const STATUS_ACTIVE = 5;
+    public const STATUS_BLOCKED = 9;
+
     const ROLE_USER  = 'user';
     const ROLE_MODERATOR  = 'moderator';
     const ROLE_CRITIC  = 'critic';

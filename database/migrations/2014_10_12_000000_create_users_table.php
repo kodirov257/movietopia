@@ -22,6 +22,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role');
+            $table->integer('status');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -32,6 +33,7 @@ return new class extends Migration
             'password'          => bcrypt('1q2w3e4r5t6y'),
             'email_verified_at' => Carbon::now()->addSeconds(300),
             'role'              => User::ROLE_ADMIN,
+            'status'            => User::STATUS_ACTIVE,
             'remember_token'    => Str::random(10),
             'created_at'        => Carbon::now(),
             'updated_at'        => Carbon::now(),
@@ -43,6 +45,7 @@ return new class extends Migration
             'password'          => bcrypt('1q2w3e4r5t6y'),
             'email_verified_at' => Carbon::now()->addSeconds(300),
             'role'              => User::ROLE_MODERATOR,
+            'status'            => User::STATUS_ACTIVE,
             'remember_token'    => Str::random(10),
             'created_at'        => Carbon::now(),
             'updated_at'        => Carbon::now(),
@@ -54,6 +57,7 @@ return new class extends Migration
             'password'          => bcrypt('1q2w3e4r5t6y'),
             'email_verified_at' => Carbon::now()->addSeconds(300),
             'role'              => User::ROLE_CRITIC,
+            'status'            => User::STATUS_ACTIVE,
             'remember_token'    => Str::random(10),
             'created_at'        => Carbon::now(),
             'updated_at'        => Carbon::now(),
@@ -65,6 +69,7 @@ return new class extends Migration
             'password'          => bcrypt('1q2w3e4r5t6y'),
             'email_verified_at' => Carbon::now()->addSeconds(300),
             'role'              => User::ROLE_USER,
+            'status'            => User::STATUS_ACTIVE,
             'remember_token'    => Str::random(10),
             'created_at'        => Carbon::now(),
             'updated_at'        => Carbon::now(),
