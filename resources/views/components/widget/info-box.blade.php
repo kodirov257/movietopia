@@ -22,10 +22,10 @@
 
         {{-- Box progress bar --}}
         @if(isset($progress) && isset($attributes['id']))
-            <x-adminlte-progress value="{{ $progress }}" theme="{{ $progressTheme }}"
+            <x-widget.progress value="{{ $progress }}" theme="{{ $progressTheme }}"
                 id="progress-{{ $attributes['id'] }}"/>
         @elseif(isset($progress))
-            <x-adminlte-progress value="{{ $progress }}" theme="{{ $progressTheme }}"/>
+            <x-widget.progress value="{{ $progress }}" theme="{{ $progressTheme }}"/>
         @endif
 
         {{-- Box long description --}}
