@@ -30,6 +30,13 @@ services:
       - 9000:9000
     volumes:
       - ./:/var/www/html:cached
+    environment:
+      - ENV_SUBSTITUTION_ENABLE=true
+      - PHP_MEMORY_LIMIT=512M
+      - PHP_EXPOSE_PHP=On
+      - PHP_SESSION_GC_MAXLIFETIME=7200
+      - PHP_FPM_ERROR_LOG=/proc/self/fd/2
+      - PHP_FPM_LOG_LEVEL=error
     links:
       - db
       - redis
@@ -83,4 +90,4 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 192.168.204.0/28
+        - subnet: 192.168.204.12/28
