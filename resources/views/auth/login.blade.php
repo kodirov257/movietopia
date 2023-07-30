@@ -25,8 +25,8 @@
 
             {{-- Email field --}}
             <div class="input-group mb-3">
-                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                       value="{{ old('email') }}" placeholder="{{ __('adminlte.email') }}" autofocus>
+                <input type="text" name="email_or_username" class="form-control @error('email_or_username') is-invalid @enderror"
+                       value="{{ old('email_or_username') }}" placeholder="{{ __('adminlte.email_or_username') }}" autofocus>
 
                 <div class="input-group-append">
                     <div class="input-group-text">
@@ -34,9 +34,11 @@
                     </div>
                 </div>
 
-                @error('email')
+                @error('email_or_username')
                     <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->get('email') }}</strong>
+                        @foreach($errors->get('email_or_username') as $error)
+                            <strong>{{ $error }}</strong>
+                        @endforeach
                     </span>
                 @enderror
             </div>
@@ -54,7 +56,9 @@
 
                 @error('password')
                     <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->get('password') }}</strong>
+                        @foreach($errors->get('password') as $error)
+                            <strong>{{ $error }}</strong>
+                        @endforeach
                     </span>
                 @enderror
             </div>

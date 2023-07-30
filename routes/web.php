@@ -14,9 +14,11 @@ use JeroenNoten\LaravelAdminLte\Http\Controllers\DarkModeController;
 |
 */
 
-Route::get('/login', 'Auth\LoginController@loginForm');
+Route::get('/login', 'Auth\LoginController@loginForm')->name('login');
+Route::post('/login', 'Auth\LoginController@login')->name('signin');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'/*, 'middleware' => ['auth', 'can:admin-panel']*/], function () {
+Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'namespace' => 'Admin', 'middleware' => ['auth', /*'can:admin-panel'*/]], function () {
     Route::get('/', 'DashboardController@index')->name('home');
 
     Route::post('/darkmode/toggle', [DarkModeController::class, 'toggle'])
@@ -25,4 +27,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'/*, '
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/phpinfo', function () {
+    phpinfo();
+});
+
+Route::get('/xdebug_info', function () {
+    xdebug_info();
 });
