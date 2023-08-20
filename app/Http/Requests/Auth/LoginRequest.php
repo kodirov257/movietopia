@@ -3,8 +3,10 @@
 namespace App\Http\Requests\Auth;
 
 use App\Helpers\UserHelper;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
@@ -51,12 +53,12 @@ class LoginRequest extends FormRequest
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function authenticate(): void
+    public function authenticate(?string $guard = null): void
     {
 
         $this->ensureIsNotRateLimited();
 
-        if (!Auth::attempt($this->getCredentials(), $this->boolean('remember'))) {
+        if (!Auth::guard($guard)->attempt($this->getCredentials(), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
@@ -64,7 +66,7 @@ class LoginRequest extends FormRequest
             ]);
         }
 
-        RateLimiter::clear($this->throttleKey());
+        $this->clearLoginAttempts();
     }
 
     /**
@@ -90,6 +92,17 @@ class LoginRequest extends FormRequest
         ]);
     }
 
+    public function authenticated(): RedirectResponse
+    {
+        if (Auth::guard()->user() && Auth::guard()->user()->isWait()) {
+            Auth::guard()->logout();
+
+            return back()->with('error', trans('auth.need_to_confirm_email'));
+        }
+
+        return redirect()->intended(RouteServiceProvider::HOME);
+    }
+
     /**
      * Get the rate limiting throttle key for the request.
      */
@@ -109,5 +122,10 @@ class LoginRequest extends FormRequest
     public function username(): string
     {
         return 'email_or_username';
+    }
+
+    private function clearLoginAttempts(): void
+    {
+        RateLimiter::clear($this->throttleKey());
     }
 }
