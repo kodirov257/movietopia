@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Service\Auth\AuthenticationService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +31,6 @@ class ConfirmPasswordController extends Controller
 
         $request->session()->passwordConfirmed();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect()->intended(AuthenticationService::getHomeRoute());
     }
 }
