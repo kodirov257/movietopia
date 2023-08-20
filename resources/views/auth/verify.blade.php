@@ -12,8 +12,11 @@
         {{ __('adminlte.verify_check_your_email') }}
         {{ __('adminlte.verify_if_not_recieved') }},
 
-        <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+{{--        <a href="{{ route('verification.send', ['email' => $user->email]) }}">{{ __('adminlte.verify_request_another') }}</a>--}}
+
+        <form class="d-inline" method="POST" action="{{ route('verification.send') }}">
             @csrf
+            <input type="hidden" name="email" value="{{ $user->email }}">
             <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
                 {{ __('adminlte.verify_request_another') }}
             </button>.

@@ -1,6 +1,6 @@
 <?php
 
-use App\Entity\User;
+use App\Entity\User\User;
 use Carbon\Carbon;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;

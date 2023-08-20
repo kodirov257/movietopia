@@ -3,6 +3,9 @@
 return [
 
     'full_name'                   => 'Full name',
+    'first_name'                  => 'First name',
+    'last_name'                   => 'Last name',
+    'username'                    => 'Username',
     'email'                       => 'Email',
     'email_or_username'           => 'Email or Username',
     'password'                    => 'Password',
@@ -27,4 +30,7 @@ return [
     'verify_request_another'      => 'click here to request another',
     'confirm_password_message'    => 'Please, confirm your password to continue.',
     'remember_me_hint'            => 'Keep me authenticated indefinitely or until I manually logout',
+
+    'male' => 'Male',
+    'female' => 'Female',
 ];

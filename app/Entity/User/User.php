@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\User;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Service\Auth\VerifyEmail;
 use Carbon\Carbon;
+use Eloquent;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Eloquent;
 
 /**
  * @property int $id
@@ -23,6 +24,8 @@ use Eloquent;
  * @property string $remember_token
  * @property Carbon $created_at
  * @property Carbon $updated_at
+ *
+ * @property Profile $profile
  *
  * @mixin Eloquent
  */
@@ -47,8 +50,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name',
         'email',
+        'role',
+        'status',
         'password',
         'email_verified',
+        'email_verify_token',
     ];
 
     /**
@@ -116,8 +122,23 @@ class User extends Authenticatable implements MustVerifyEmail
         ])->save();
     }
 
+    public function sendEmailVerificationNotification(): void
+    {
+        $this->notify(new VerifyEmail);
+    }
+
     public function getEmailForVerification(): string
     {
         return $this->email_verify_token;
     }
+
+
+    ########################################### Relations
+
+    public function profile(): \Illuminate\Database\Eloquent\Relations\HasOne|Profile
+    {
+        return $this->hasOne(Profile::class, 'user_id', 'id');
+    }
+
+    ###########################################
 }
