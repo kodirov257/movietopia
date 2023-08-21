@@ -13,19 +13,22 @@ use Illuminate\Support\Str;
 
 class AuthenticationService
 {
-    public static function getHomeRoute(): string
+    public static function getHomeRouteName(): string
     {
         if (Auth::user()->isAdmin()) {
-            session(['url.intended' => route('dashboard.home')]);
-            return route('dashboard.home');
+            return 'dashboard.home';
         }
 
-        if (Auth::user()->isUser()) {
-            session(['url.intended' => route('home')]);
-            return route('home');
-        }
+        return 'home';
+    }
 
-        return RouteServiceProvider::HOME;
+    public static function getHomeRoute(): string
+    {
+        $route = self::getHomeRouteName();
+
+        session(['url.intended' => route($route)]);
+
+        return route($route);
     }
 
     /**

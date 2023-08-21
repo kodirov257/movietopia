@@ -45,7 +45,7 @@ class VerificationController extends Controller
             event(new Verified($request->user));
         }
 
-        return redirect()->route('login')->with('success', trans('auth.email_verified_login'));;
+        return redirect()->route('login')->with('success', trans('auth.email_verified_login'));
     }
 
     public function sendEmailVerificationNotification(Request $request): RedirectResponse

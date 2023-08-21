@@ -1,6 +1,6 @@
 <x-auth-page-layout auth-type="register">
     @php( $login_url = View::getSection('login_url') ?? config('adminlte.login_url', 'login') )
-    @php( $register_url = View::getSection('register_url') ?? config('adminlte.register_url', 'register') )
+    @php( $register_url = View::getSection('register_url') ?? config('adminlte.register_url', 'register.show') )
 
     @if (config('adminlte.use_route_url', false))
         @php( $login_url = $login_url ? route($login_url) : '' )
