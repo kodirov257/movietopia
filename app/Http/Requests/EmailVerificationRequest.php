@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Entity\User\User;
+use App\Models\User\User;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Auth\EmailVerificationRequest as BaseRequest;
 

@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
-use App\Entity\User\User;
+use App\Models\User\User;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;

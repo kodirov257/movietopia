@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Entity\User\User;
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
+use App\Http\Requests\EmailVerificationRequest;
+use App\Models\User\User;
 use App\Service\Auth\AuthenticationService;
 use Illuminate\Auth\Events\Verified;
-use App\Http\Requests\EmailVerificationRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;

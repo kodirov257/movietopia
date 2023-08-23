@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Entity\User\User;
 use App\Http\Controllers\Controller;
+use App\Models\User\User;
 use App\Service\Auth\AuthenticationService;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;

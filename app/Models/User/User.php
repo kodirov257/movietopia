@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\User;
+namespace App\Models\User;
 
 use Carbon\Carbon;
 use Eloquent;
