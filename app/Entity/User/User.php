@@ -2,7 +2,6 @@
 
 namespace App\Entity\User;
 
-use App\Service\Auth\VerifyEmail;
 use Carbon\Carbon;
 use Eloquent;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -120,16 +119,6 @@ class User extends Authenticatable implements MustVerifyEmail
             'email_verified_at' => $this->freshTimestamp(),
             'email_verified' => true,
         ])->save();
-    }
-
-    public function sendEmailVerificationNotification(): void
-    {
-        $this->notify(new VerifyEmail);
-    }
-
-    public function getEmailForVerification(): string
-    {
-        return $this->email_verify_token;
     }
 
 
