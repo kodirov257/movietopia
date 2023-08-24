@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Providers\RouteServiceProvider;
-use App\Service\Auth\AuthenticationService;
+use App\Services\Auth\AuthenticationService;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

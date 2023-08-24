@@ -4,7 +4,7 @@ namespace App\Http\Requests\Auth;
 
 use App\Helpers\UserHelper;
 use App\Providers\RouteServiceProvider;
-use App\Service\Auth\AuthenticationService;
+use App\Services\Auth\AuthenticationService;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\RedirectResponse;

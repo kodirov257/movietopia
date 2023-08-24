@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EmailVerificationRequest;
 use App\Models\User\User;
-use App\Service\Auth\AuthenticationService;
+use App\Services\Auth\AuthenticationService;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
