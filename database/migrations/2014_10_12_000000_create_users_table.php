@@ -1,6 +1,6 @@
 <?php
 
-use App\Entity\User;
+use App\Models\User\User;
 use Carbon\Carbon;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,11 +17,14 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('name', 50);
+            $table->string('email', 100)->unique();
+            $table->boolean('email_verified')->default(false);
+            $table->string('email_verify_token')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password', 120);
             $table->string('role');
+            $table->integer('status');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -30,8 +33,10 @@ return new class extends Migration
             'name'              => 'admin',
             'email'             => 'admin@gmail.com',
             'password'          => bcrypt('1q2w3e4r5t6y'),
+            'email_verified'    => true,
             'email_verified_at' => Carbon::now()->addSeconds(300),
             'role'              => User::ROLE_ADMIN,
+            'status'            => User::STATUS_ACTIVE,
             'remember_token'    => Str::random(10),
             'created_at'        => Carbon::now(),
             'updated_at'        => Carbon::now(),
@@ -41,8 +46,10 @@ return new class extends Migration
             'name'              => 'moderator',
             'email'             => 'moderator@gmail.com',
             'password'          => bcrypt('1q2w3e4r5t6y'),
+            'email_verified'    => true,
             'email_verified_at' => Carbon::now()->addSeconds(300),
             'role'              => User::ROLE_MODERATOR,
+            'status'            => User::STATUS_ACTIVE,
             'remember_token'    => Str::random(10),
             'created_at'        => Carbon::now(),
             'updated_at'        => Carbon::now(),
@@ -52,8 +59,10 @@ return new class extends Migration
             'name'              => 'critic',
             'email'             => 'critic@gmail.com',
             'password'          => bcrypt('1q2w3e4r5t6y'),
+            'email_verified'    => true,
             'email_verified_at' => Carbon::now()->addSeconds(300),
             'role'              => User::ROLE_CRITIC,
+            'status'            => User::STATUS_ACTIVE,
             'remember_token'    => Str::random(10),
             'created_at'        => Carbon::now(),
             'updated_at'        => Carbon::now(),
@@ -63,8 +72,10 @@ return new class extends Migration
             'name'              => 'user',
             'email'             => 'user@gmail.com',
             'password'          => bcrypt('1q2w3e4r5t6y'),
+            'email_verified'    => true,
             'email_verified_at' => Carbon::now()->addSeconds(300),
             'role'              => User::ROLE_USER,
+            'status'            => User::STATUS_ACTIVE,
             'remember_token'    => Str::random(10),
             'created_at'        => Carbon::now(),
             'updated_at'        => Carbon::now(),

@@ -20,17 +20,17 @@
 
                 {{-- Default tools --}}
                 @isset($maximizable)
-                    <x-adminlte-button theme="tool" data-card-widget="maximize" icon="fas fa-lg fa-expand"/>
+                    <x-form.button theme="tool" data-card-widget="maximize" icon="fas fa-lg fa-expand"/>
                 @endisset
 
                 @if($collapsible === 'collapsed')
-                    <x-adminlte-button theme="tool" data-card-widget="collapse" icon="fas fa-lg fa-plus"/>
+                    <x-form.button theme="tool" data-card-widget="collapse" icon="fas fa-lg fa-plus"/>
                 @elseif(isset($collapsible))
-                    <x-adminlte-button theme="tool" data-card-widget="collapse" icon="fas fa-lg fa-minus"/>
+                    <x-form.button theme="tool" data-card-widget="collapse" icon="fas fa-lg fa-minus"/>
                 @endif
 
                 @isset($removable)
-                    <x-adminlte-button theme="tool" data-card-widget="remove" icon="fas fa-lg fa-times"/>
+                    <x-form.button theme="tool" data-card-widget="remove" icon="fas fa-lg fa-times"/>
                 @endisset
 
             </div>

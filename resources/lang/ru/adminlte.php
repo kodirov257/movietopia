@@ -3,7 +3,11 @@
 return [
 
     'full_name'                   => 'Полное имя',
+    'first_name'                  => 'Имя',
+    'last_name'                   => 'Фамилия',
+    'username'                    => 'Имя пользователя',
     'email'                       => 'Почта',
+    'email_or_username'           => 'Почта или Имя пользователя',
     'password'                    => 'Пароль',
     'retype_password'             => 'Подтверждение пароля',
     'remember_me'                 => 'Запомнить меня',
@@ -20,4 +24,6 @@ return [
     'reset_password'              => 'Восстановление пароля',
     'send_password_reset_link'    => 'Отправить ссылку для восстановления пароля',
 
+    'male' => 'Мужчина',
+    'female' => 'Женщина',
 ];
