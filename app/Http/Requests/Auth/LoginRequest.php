@@ -68,7 +68,7 @@ class LoginRequest extends FormRequest
             ]);
         }
 
-        $this->redirectTo = AuthenticationService::getHomeRoute();
+        $this->redirectTo = AuthenticationService::getHomeRoutePath();
 
         $this->clearLoginAttempts();
     }
