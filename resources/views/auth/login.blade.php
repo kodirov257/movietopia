@@ -91,7 +91,7 @@
 
     @section('auth_footer')
         {{-- Set up OTP link --}}
-        @if($two_factor_create_url)
+        @if($two_factor_create_url && config('google2fa.enabled'))
             <p class="my-0">
                 <a href="{{ $two_factor_create_url }}">
                     {{ __('adminlte.google2fa_title') }}
