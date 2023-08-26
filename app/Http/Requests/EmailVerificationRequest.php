@@ -19,6 +19,10 @@ class EmailVerificationRequest extends BaseRequest
             return false;
         }
 
+        if ($this->user->hasVerifiedEmail()) {
+            return true;
+        }
+
         if (! hash_equals((string) $this->user->getKey(), (string) $this->route('id'))) {
             return false;
         }

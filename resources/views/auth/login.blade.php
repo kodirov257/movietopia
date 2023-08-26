@@ -6,15 +6,18 @@
     @php( $login_url = View::getSection('login_url') ?? config('adminlte.login_url', 'login') )
     @php( $register_url = View::getSection('register_url') ?? config('adminlte.register_url', 'register') )
     @php( $password_request_url = View::getSection('password_reset_url') ?? config('adminlte.password_request_url', 'password.email.request') )
+    @php( $two_factor_create_url = View::getSection('two_factor_create_url') ?? config('adminlte.two_factor_create_url', 'two-factor-auth.create') )
 
     @if (config('adminlte.use_route_url', false))
         @php( $login_url = $login_url ? route($login_url) : '' )
         @php( $register_url = $register_url ? route($register_url) : '' )
         @php( $password_request_url = $password_request_url ? route($password_request_url) : '' )
+        @php( $two_factor_create_url = $two_factor_create_url ? route($two_factor_create_url) : '' )
     @else
         @php( $login_url = $login_url ? url($login_url) : '' )
         @php( $register_url = $register_url ? url($register_url) : '' )
         @php( $password_request_url = $password_request_url ? url($password_request_url) : '' )
+        @php( $two_factor_create_url = $two_factor_create_url ? url($two_factor_create_url) : '' )
     @endif
 
     @section('auth_header', __('adminlte.login_message'))
@@ -87,6 +90,14 @@
     @stop
 
     @section('auth_footer')
+        {{-- Set up OTP link --}}
+        @if($two_factor_create_url)
+            <p class="my-0">
+                <a href="{{ $two_factor_create_url }}">
+                    {{ __('adminlte.google2fa_title') }}
+                </a>
+            </p>
+        @endif
         {{-- Password reset link --}}
         @if($password_request_url)
             <p class="my-0">
