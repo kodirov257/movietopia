@@ -186,6 +186,7 @@ return [
          * Package Service Providers...
          */
         App\Providers\AdminLteServiceProvider::class,
+        PragmaRX\Google2FALaravel\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -211,6 +212,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Google2FA' => PragmaRX\Google2FALaravel\Facade::class,
     ])->toArray(),
 
 ];
