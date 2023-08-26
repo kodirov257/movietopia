@@ -20,7 +20,6 @@ use Illuminate\Validation\ValidationException;
 class LoginRequest extends FormRequest
 {
     private string $login;
-    private string $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Determine if the user is authorized to make this request.
@@ -68,8 +67,6 @@ class LoginRequest extends FormRequest
             ]);
         }
 
-        $this->redirectTo = AuthenticationService::getHomeRoutePath();
-
         $this->clearLoginAttempts();
     }
 
@@ -104,7 +101,7 @@ class LoginRequest extends FormRequest
             return back()->with('error', trans('auth.need_to_confirm_email'));
         }
 
-        return redirect()->intended($this->redirectTo);
+        return redirect()->intended(AuthenticationService::getHomeRoutePath());
     }
 
     /**

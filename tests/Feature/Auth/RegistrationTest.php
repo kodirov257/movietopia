@@ -4,8 +4,10 @@ namespace Tests\Feature\Auth;
 
 use App\Models\User\Profile;
 use App\Models\User\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
@@ -22,6 +24,7 @@ class RegistrationTest extends TestCase
 
     public function test_new_users_can_register(): void
     {
+        Event::fake();
 
         $response = $this->post('/register', [
             'first_name' => 'Test',
@@ -32,6 +35,7 @@ class RegistrationTest extends TestCase
             'password_confirmation' => 'password',
         ]);
 
+        Event::assertDispatched(Registered::class);
         $response->assertRedirect('/verify-email');
     }
 
