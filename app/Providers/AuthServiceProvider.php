@@ -63,5 +63,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('admin-panel', function (User $user) {
             return $user->isAdmin();
         });
+
+        Gate::define('manage-movie', function (User $user) {
+            return $user->isAdmin();
+        });
     }
 }

@@ -16,4 +16,7 @@ return [
     'important'                     => 'Важно',
     'warning'                       => 'Внимание',
     'information'                   => 'Информация',
+
+    'movies'                        => 'Фильмы',
+    'genres'                        => 'Жанры',
 ];

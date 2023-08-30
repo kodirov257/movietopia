@@ -2,9 +2,9 @@
 
     {{-- Sidebar brand logo --}}
     @if(config('adminlte.logo_img_xl'))
-        @include('adminlte::partials.common.brand-logo-xl')
+        @include('partials.admin.common.brand-logo-xl')
     @else
-        @include('adminlte::partials.common.brand-logo-xs')
+        @include('partials.admin.common.brand-logo-xs')
     @endif
 
     {{-- Sidebar menu --}}
@@ -19,7 +19,7 @@
                     data-accordion="false"
                 @endif>
                 {{-- Configured sidebar links --}}
-                @each('adminlte::partials.sidebar.menu-item', $adminlte->menu('sidebar'), 'item')
+                @each('partials.admin.sidebar.menu-item', $adminlte->menu('sidebar'), 'item')
             </ul>
         </nav>
     </div>

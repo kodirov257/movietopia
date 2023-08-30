@@ -2,6 +2,7 @@
 
 return [
 
+    'home'                        => 'Home',
     'full_name'                   => 'Полное имя',
     'first_name'                  => 'Имя',
     'last_name'                   => 'Фамилия',
@@ -40,4 +41,29 @@ return [
 
     'male' => 'Мужчина',
     'female' => 'Женщина',
+
+    'create' => 'Добавить',
+    'save' => 'Добавить',
+    'search' => 'Искать',
+    'clear' => 'Очистить',
+    'edit' => 'Редактировать',
+    'delete' => 'Удалить',
+    'delete_confirmation_message' => 'Вы уверены?',
+    'main' => 'Основной',
+
+    'id' => 'ID',
+    'name' => 'Название',
+    'title' => 'Название',
+    'menu_title' => 'Название меню',
+    'description' => 'Описание',
+    'keywords' => 'Ключевые слова',
+    'created_by' => 'Добавил',
+    'updated_by' => 'Редактировал',
+    'created_at' => 'Добавлено',
+    'updated_at' => 'Редактировано',
+    'other' => 'Другой',
+
+    'genre' => [
+        'add' => 'Добавить Жанр',
+    ],
 ];

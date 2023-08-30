@@ -2,6 +2,7 @@
 
 return [
 
+    'home'                        => 'Главная',
     'full_name'                   => 'Full name',
     'first_name'                  => 'First name',
     'last_name'                   => 'Last name',
@@ -40,4 +41,29 @@ return [
 
     'male' => 'Male',
     'female' => 'Female',
+
+    'create' => 'Create',
+    'save' => 'Save',
+    'search' => 'Search',
+    'clear' => 'Clear',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'delete_confirmation_message' => 'Are you sure?',
+    'main' => 'Main',
+
+    'id' => 'ID',
+    'name' => 'Name',
+    'title' => 'Title',
+    'menu_title' => 'Menu title',
+    'description' => 'Description',
+    'keywords' => 'Keywords',
+    'created_by' => 'Created by',
+    'updated_by' => 'Updated by',
+    'created_at' => 'Created at',
+    'updated_at' => 'Updated at',
+    'other' => 'Other',
+
+    'genre' => [
+        'add' => 'Add Genre',
+    ],
 ];
