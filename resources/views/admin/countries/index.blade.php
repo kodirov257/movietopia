@@ -37,7 +37,7 @@
                     <td><a href="{{ route('dashboard.countries.show', $country) }}">{{ $country->name_uz }}</a></td>
                     <td><a href="{{ route('dashboard.countries.show', $country) }}">{{ $country->name_ru }}</a></td>
                     <td><a href="{{ route('dashboard.countries.show', $country) }}">{{ $country->name_en }}</a></td>
-                    <td>{{ $country->name_slug }}</td>
+                    <td>{{ $country->slug }}</td>
                 </tr>
             @endforeach
             </tbody>

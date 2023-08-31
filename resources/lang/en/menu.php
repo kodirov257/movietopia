@@ -21,4 +21,5 @@ return [
     'users'                         => 'Users',
     'genres'                        => 'Genres',
     'countries'                     => 'Countries',
+    'companies'                     => 'Companies',
 ];

@@ -347,6 +347,12 @@ return [
             'icon' => 'fas fa-fw fa-file',
             'can'  => 'manage-movie',
         ],
+        [
+            'text' => 'companies',
+            'url'  => '/dashboard/companies',
+            'icon' => 'fas fa-fw fa-file',
+            'can'  => 'manage-movie',
+        ],
         /*[
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',

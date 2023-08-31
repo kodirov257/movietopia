@@ -21,4 +21,5 @@ return [
     'users'                         => 'Пользователи',
     'genres'                        => 'Жанры',
     'countries'                     => 'Страны',
+    'companies'                     => 'Компании',
 ];

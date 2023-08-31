@@ -90,4 +90,8 @@ return [
     'country' => [
         'add' => 'Mamlakat qo`shmoq',
     ],
+
+    'company' => [
+        'add' => 'Kompaniya qo`shmoq',
+    ],
 ];

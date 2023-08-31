@@ -1,6 +1,6 @@
 <x-admin-page-layout>
     @section('content')
-        <p><a href="{{ route('dashboard.genres.create') }}" class="btn btn-success">{{ trans('adminlte.genre.add') }}</a></p>
+        <p><a href="{{ route('dashboard.companies.create') }}" class="btn btn-success">{{ trans('adminlte.company.add') }}</a></p>
 
         <div class="card mb-4">
             <div class="card-body">
@@ -29,19 +29,21 @@
                 <td>Название</td>
                 <td>Name</td>
                 <td>Slug</td>
+                <td>URL</td>
             </tr>
             </thead>
             <tbody>
-            @foreach($genres as $genre)
+            @foreach($companies as $company)
                 <tr>
-                    <td><a href="{{ route('dashboard.genres.show', $genre) }}">{{ $genre->name_uz }}</a></td>
-                    <td><a href="{{ route('dashboard.genres.show', $genre) }}">{{ $genre->name_ru }}</a></td>
-                    <td><a href="{{ route('dashboard.genres.show', $genre) }}">{{ $genre->name_en }}</a></td>
-                    <td>{{ $genre->slug }}</td>
+                    <td><a href="{{ route('dashboard.companies.show', $company) }}">{{ $company->name_uz }}</a></td>
+                    <td><a href="{{ route('dashboard.companies.show', $company) }}">{{ $company->name_ru }}</a></td>
+                    <td><a href="{{ route('dashboard.companies.show', $company) }}">{{ $company->name_en }}</a></td>
+                    <td>{{ $company->name_slug }}</td>
+                    <td><a href="{{ $company->url }}">{{ $company->url }}</a></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
-        {{ $genres->links() }}
+        {{ $companies->links() }}
     @endsection
 </x-admin-page-layout>

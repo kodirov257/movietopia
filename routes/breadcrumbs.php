@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Company;
 use App\Models\Country;
 use App\Models\Genre;
 use App\Models\User\User;
@@ -85,4 +86,27 @@ Breadcrumbs::for('dashboard.countries.show', function (Crumbs $crumbs, Country $
 Breadcrumbs::for('dashboard.countries.edit', function (Crumbs $crumbs, Country $country) {
     $crumbs->parent('dashboard.countries.show', $country);
     $crumbs->push(trans('adminlte.edit'), route('dashboard.countries.edit', $country));
+});
+
+
+// Companies
+
+Breadcrumbs::for('dashboard.companies.index', function (Crumbs $crumbs) {
+    $crumbs->parent('dashboard.home');
+    $crumbs->push(trans('menu.companies'), route('dashboard.companies.index'));
+});
+
+Breadcrumbs::for('dashboard.companies.create', function (Crumbs $crumbs) {
+    $crumbs->parent('dashboard.companies.index');
+    $crumbs->push(trans('adminlte.create'), route('dashboard.companies.create'));
+});
+
+Breadcrumbs::for('dashboard.companies.show', function (Crumbs $crumbs, Company $company) {
+    $crumbs->parent('dashboard.companies.index');
+    $crumbs->push($company->name, route('dashboard.companies.show', $company));
+});
+
+Breadcrumbs::for('dashboard.companies.edit', function (Crumbs $crumbs, Company $company) {
+    $crumbs->parent('dashboard.companies.show', $company);
+    $crumbs->push(trans('adminlte.edit'), route('dashboard.companies.edit', $company));
 });

@@ -91,4 +91,8 @@ return [
     'country' => [
         'add' => 'Add Country',
     ],
+
+    'company' => [
+        'add' => 'Add company',
+    ],
 ];

@@ -59,6 +59,7 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'namespace' => 'Adm
 
     Route::resource('genres', 'GenreController');
     Route::resource('countries', 'CountryController');
+    Route::resource('companies', 'CompanyController');
 
     Route::post('/darkmode/toggle', [DarkModeController::class, 'toggle'])
         ->name('darkmode.toggle');

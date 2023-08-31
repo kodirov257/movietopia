@@ -53,8 +53,14 @@
                     <div class="card-body">
                         <table class="table table-striped projects">
                             <tbody>
-                            <tr><th>{{ trans('adminlte.created_by') }}</th><td>{{ $genre->createdBy->name }}</td></tr>
-                            <tr><th>{{ trans('adminlte.updated_by') }}</th><td>{{ $genre->updatedBy->name }}</td></tr>
+                            <tr>
+                                <th>{{ trans('adminlte.created_by') }}</th>
+                                <td><a href="{{ route('dashboard.users.show', $genre->createdBy) }}">{{ $genre->createdBy->name }}</a></td>
+                            </tr>
+                            <tr>
+                                <th>{{ trans('adminlte.updated_by') }}</th>
+                                <td><a href="{{ route('dashboard.users.show', $genre->updatedBy) }}">{{ $genre->updatedBy->name }}</a></td>
+                            </tr>
                             <tr><th>{{ trans('adminlte.created_at') }}</th><td>{{ $genre->created_at }}</td></tr>
                             <tr><th>{{ trans('adminlte.updated_at') }}</th><td>{{ $genre->updated_at }}</td></tr>
                             </tbody>

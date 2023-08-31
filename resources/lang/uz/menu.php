@@ -21,4 +21,5 @@ return [
     'users'                         => 'Foydalanuvchilar',
     'genres'                        => 'Janrlar',
     'countries'                     => 'Mamlakatlar',
+    'companies'                     => 'Kompaniyalar',
 ];
