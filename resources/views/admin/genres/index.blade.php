@@ -14,7 +14,7 @@
                         <div class="col-sm-2">
                             <div class="form-group">
                                 {!! Html::button(trans('adminlte.search'), 'submit')->class('btn btn-primary') !!}
-                                {!! Html::a('?', trans('adminlte.clear'))->class('btn-outline-secondary') !!}
+                                {!! Html::a('?', trans('adminlte.clear'))->class('btn btn-outline-secondary') !!}
                             </div>
                         </div>
                     </div>
