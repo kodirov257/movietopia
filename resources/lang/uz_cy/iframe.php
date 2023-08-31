@@ -13,12 +13,12 @@ return [
     |
     */
 
-    'btn_close' => 'Fermer',
-    'btn_close_active' => 'Fermer Actif',
-    'btn_close_all' => 'Tout fermer',
-    'btn_close_all_other' => 'Fermer tout le reste',
-    'tab_empty' => 'Aucun onglet sélectionné !',
-    'tab_home' => 'Accueil',
-    'tab_loading' => 'Onglet en cours de chargement',
+    'btn_close' => 'Yopmoq',
+    'btn_close_active' => 'Faollarini yopmoq',
+    'btn_close_all' => 'Hammasini yopmoq',
+    'btn_close_all_other' => 'Qolgan hammasini yopmoq',
+    'tab_empty' => 'Hech qanday tab tanlanmagan!',
+    'tab_home' => 'Asosiy',
+    'tab_loading' => 'Tab yuklanmoqda',
 
 ];

@@ -13,12 +13,12 @@ return [
     |
     */
 
-    'btn_close' => 'Schließen',
-    'btn_close_active' => 'Aktive schließen',
-    'btn_close_all' => 'Alle schließen',
-    'btn_close_all_other' => 'Alle anderen schließen',
-    'tab_empty' => 'Kein Tab ausgewählt!',
-    'tab_home' => 'Home',
-    'tab_loading' => 'Tab wird geladen',
+    'btn_close' => 'Ёпмоқ',
+    'btn_close_active' => 'Фаолларини ёпмоқ',
+    'btn_close_all' => 'Ҳаммасини ёпмоқ',
+    'btn_close_all_other' => 'Қолган ҳаммасини ёпмоқ',
+    'tab_empty' => 'Ҳеч қандай таб танланмаган!',
+    'tab_home' => 'Асосий',
+    'tab_loading' => 'Таб юкланмоқда',
 
 ];
