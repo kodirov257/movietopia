@@ -3,6 +3,7 @@
 use App\Models\Company;
 use App\Models\Country;
 use App\Models\Genre;
+use App\Models\Position;
 use App\Models\User\User;
 use Diglactic\Breadcrumbs\Generator as Crumbs;
 
@@ -109,4 +110,27 @@ Breadcrumbs::for('dashboard.companies.show', function (Crumbs $crumbs, Company $
 Breadcrumbs::for('dashboard.companies.edit', function (Crumbs $crumbs, Company $company) {
     $crumbs->parent('dashboard.companies.show', $company);
     $crumbs->push(trans('adminlte.edit'), route('dashboard.companies.edit', $company));
+});
+
+
+// Positions
+
+Breadcrumbs::for('dashboard.positions.index', function (Crumbs $crumbs) {
+    $crumbs->parent('dashboard.home');
+    $crumbs->push(trans('menu.positions'), route('dashboard.positions.index'));
+});
+
+Breadcrumbs::for('dashboard.positions.create', function (Crumbs $crumbs) {
+    $crumbs->parent('dashboard.positions.index');
+    $crumbs->push(trans('adminlte.create'), route('dashboard.positions.create'));
+});
+
+Breadcrumbs::for('dashboard.positions.show', function (Crumbs $crumbs, Position $position) {
+    $crumbs->parent('dashboard.positions.index');
+    $crumbs->push($position->name, route('dashboard.positions.show', $position));
+});
+
+Breadcrumbs::for('dashboard.positions.edit', function (Crumbs $crumbs, Position $position) {
+    $crumbs->parent('dashboard.positions.show', $position);
+    $crumbs->push(trans('adminlte.edit'), route('dashboard.positions.edit', $position));
 });

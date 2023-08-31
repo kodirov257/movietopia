@@ -22,4 +22,5 @@ return [
     'genres'                        => 'Genres',
     'countries'                     => 'Countries',
     'companies'                     => 'Companies',
+    'positions'                     => 'Movie Positions',
 ];

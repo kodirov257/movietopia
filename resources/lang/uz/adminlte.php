@@ -94,4 +94,8 @@ return [
     'company' => [
         'add' => 'Kompaniya qo`shmoq',
     ],
+
+    'position' => [
+        'add' => 'Vazifa qo`shmoq',
+    ],
 ];

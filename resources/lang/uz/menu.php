@@ -22,4 +22,5 @@ return [
     'genres'                        => 'Janrlar',
     'countries'                     => 'Mamlakatlar',
     'companies'                     => 'Kompaniyalar',
+    'positions'                     => 'Kinodagi vazifalar',
 ];

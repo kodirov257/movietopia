@@ -353,6 +353,12 @@ return [
             'icon' => 'fas fa-fw fa-file',
             'can'  => 'manage-movie',
         ],
+        [
+            'text' => 'positions',
+            'url'  => '/dashboard/positions',
+            'icon' => 'fas fa-fw fa-file',
+            'can'  => 'manage-movie',
+        ],
         /*[
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',

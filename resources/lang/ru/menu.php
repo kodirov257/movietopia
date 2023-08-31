@@ -22,4 +22,5 @@ return [
     'genres'                        => 'Жанры',
     'countries'                     => 'Страны',
     'companies'                     => 'Компании',
+    'positions'                     => 'Должности',
 ];

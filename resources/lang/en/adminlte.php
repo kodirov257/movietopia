@@ -93,6 +93,10 @@ return [
     ],
 
     'company' => [
-        'add' => 'Add company',
+        'add' => 'Add Company',
+    ],
+
+    'position' => [
+        'add' => 'Add Position',
     ],
 ];
