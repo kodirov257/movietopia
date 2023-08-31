@@ -87,4 +87,8 @@ return [
     'genre' => [
         'add' => 'Add Genre',
     ],
+
+    'country' => [
+        'add' => 'Add Country',
+    ],
 ];

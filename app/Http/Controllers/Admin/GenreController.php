@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Genres\CreateRequest;
-use App\Http\Requests\Genres\UpdateRequest;
+use App\Http\Requests\Admin\Genres\CreateRequest;
+use App\Http\Requests\Admin\Genres\UpdateRequest;
 use App\Models\Genre;
 use App\Services\Manage\GenreService;
 use Illuminate\Database\Query\Builder;

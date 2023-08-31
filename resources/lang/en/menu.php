@@ -20,4 +20,5 @@ return [
     'movies'                        => 'Movies',
     'users'                         => 'Users',
     'genres'                        => 'Genres',
+    'countries'                     => 'Countries',
 ];

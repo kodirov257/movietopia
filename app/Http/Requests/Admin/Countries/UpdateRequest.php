@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Genres;
+namespace App\Http\Requests\Admin\Countries;
 
+use App\Models\Country;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 /**
  * @property int $id
@@ -14,8 +16,10 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property string $meta_title
  * @property string $meta_keywords
  * @property string $meta_description
+ *
+ * @property Country $country
  */
-class CreateRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -29,7 +33,7 @@ class CreateRequest extends FormRequest
             'name_uz_cy' => 'nullable|string|max:255',
             'name_ru' => 'required|string|max:255',
             'name_en' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:genres',
+            'slug' => ['nullable', 'string', 'max:255', Rule::unique('countries')->ignore($this->country->id)],
             'meta_title' => ['required', 'string', 'max:255'],
             'meta_keywords' => ['required', 'string', 'max:255'],
             'meta_description' => ['required', 'string'],

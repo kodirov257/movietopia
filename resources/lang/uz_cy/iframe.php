@@ -13,12 +13,12 @@ return [
     |
     */
 
-    'btn_close' => 'Yopmoq',
-    'btn_close_active' => 'Faollarini yopmoq',
-    'btn_close_all' => 'Hammasini yopmoq',
-    'btn_close_all_other' => 'Qolgan hammasini yopmoq',
-    'tab_empty' => 'Hech qanday tab tanlanmagan!',
-    'tab_home' => 'Asosiy',
-    'tab_loading' => 'Tab yuklanmoqda',
+    'btn_close' => 'Ёпмоқ',
+    'btn_close_active' => 'Фаолларини ёпмоқ',
+    'btn_close_all' => 'Ҳаммасини ёпмоқ',
+    'btn_close_all_other' => 'Қолган ҳаммасини ёпмоқ',
+    'tab_empty' => 'Ҳеч қандай таб танланмаган!',
+    'tab_home' => 'Асосий',
+    'tab_loading' => 'Таб юкланмоқда',
 
 ];

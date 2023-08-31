@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Country;
 use App\Models\Genre;
 use App\Models\User\User;
 use Diglactic\Breadcrumbs\Generator as Crumbs;
@@ -61,4 +62,27 @@ Breadcrumbs::for('dashboard.genres.show', function (Crumbs $crumbs, Genre $genre
 Breadcrumbs::for('dashboard.genres.edit', function (Crumbs $crumbs, Genre $genre) {
     $crumbs->parent('dashboard.genres.show', $genre);
     $crumbs->push(trans('adminlte.edit'), route('dashboard.genres.edit', $genre));
+});
+
+
+// Countries
+
+Breadcrumbs::for('dashboard.countries.index', function (Crumbs $crumbs) {
+    $crumbs->parent('dashboard.home');
+    $crumbs->push(trans('menu.countries'), route('dashboard.countries.index'));
+});
+
+Breadcrumbs::for('dashboard.countries.create', function (Crumbs $crumbs) {
+    $crumbs->parent('dashboard.countries.index');
+    $crumbs->push(trans('adminlte.create'), route('dashboard.countries.create'));
+});
+
+Breadcrumbs::for('dashboard.countries.show', function (Crumbs $crumbs, Country $country) {
+    $crumbs->parent('dashboard.countries.index');
+    $crumbs->push($country->name, route('dashboard.countries.show', $country));
+});
+
+Breadcrumbs::for('dashboard.countries.edit', function (Crumbs $crumbs, Country $country) {
+    $crumbs->parent('dashboard.countries.show', $country);
+    $crumbs->push(trans('adminlte.edit'), route('dashboard.countries.edit', $country));
 });

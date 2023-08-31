@@ -33,11 +33,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  *
  * @mixin Eloquent
  */
-class Genre extends BaseModel
+class Country extends BaseModel
 {
     use HasFactory, Sluggable;
 
-    protected $table = 'genres';
+    protected $table = 'countries';
 
     protected $fillable = ['name_uz', 'name_uz_cy', 'name_ru', 'name_en', 'slug', 'meta_json'];
 

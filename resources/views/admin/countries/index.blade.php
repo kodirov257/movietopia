@@ -1,6 +1,6 @@
 <x-admin-page-layout>
     @section('content')
-        <p><a href="{{ route('dashboard.genres.create') }}" class="btn btn-success">{{ trans('adminlte.genre.add') }}</a></p>
+        <p><a href="{{ route('dashboard.countries.create') }}" class="btn btn-success">{{ trans('adminlte.country.add') }}</a></p>
 
         <div class="card mb-4">
             <div class="card-body">
@@ -32,16 +32,16 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($genres as $genre)
+            @foreach($countries as $country)
                 <tr>
-                    <td><a href="{{ route('dashboard.genres.show', $genre) }}">{{ $genre->name_uz }}</a></td>
-                    <td><a href="{{ route('dashboard.genres.show', $genre) }}">{{ $genre->name_ru }}</a></td>
-                    <td><a href="{{ route('dashboard.genres.show', $genre) }}">{{ $genre->name_en }}</a></td>
-                    <td>{{ $genre->name_slug }}</td>
+                    <td><a href="{{ route('dashboard.countries.show', $country) }}">{{ $country->name_uz }}</a></td>
+                    <td><a href="{{ route('dashboard.countries.show', $country) }}">{{ $country->name_ru }}</a></td>
+                    <td><a href="{{ route('dashboard.countries.show', $country) }}">{{ $country->name_en }}</a></td>
+                    <td>{{ $country->name_slug }}</td>
                 </tr>
             @endforeach
             </tbody>
         </table>
-        {{ $genres->links() }}
+        {{ $countries->links() }}
     @endsection
 </x-admin-page-layout>

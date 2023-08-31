@@ -58,6 +58,7 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'namespace' => 'Adm
     Route::post('users/{user}/remove-photo', 'UserController@removeAvatar')->name('remove-photo');
 
     Route::resource('genres', 'GenreController');
+    Route::resource('countries', 'CountryController');
 
     Route::post('/darkmode/toggle', [DarkModeController::class, 'toggle'])
         ->name('darkmode.toggle');

@@ -341,6 +341,12 @@ return [
             'icon' => 'fas fa-fw fa-file',
             'can'  => 'manage-movie',
         ],
+        [
+            'text' => 'countries',
+            'url'  => '/dashboard/countries',
+            'icon' => 'fas fa-fw fa-file',
+            'can'  => 'manage-movie',
+        ],
         /*[
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',

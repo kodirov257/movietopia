@@ -86,4 +86,8 @@ return [
     'genre' => [
         'add' => 'Janr qo`shish',
     ],
+
+    'country' => [
+        'add' => 'Mamlakat qo`shmoq',
+    ],
 ];
