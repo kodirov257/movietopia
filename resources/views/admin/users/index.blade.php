@@ -23,12 +23,12 @@
                         </div>
                         <div class="col-sm-1">
                             <div class="form-group">
-                                {!! Html::select('status', $statuses)->class('form-control')->placeholder(trans('adminlte.status')) !!}
+                                {!! Html::select('status', $statuses, request('status'))->class('form-control')->placeholder(trans('adminlte.status')) !!}
                             </div>
                         </div>
                         <div class="col-sm-1">
                             <div class="form-group">
-                                {!! Html::select('role', $roles)->class('form-control')->placeholder(trans('adminlte.user.role')) !!}
+                                {!! Html::select('role', $roles, request('role'))->class('form-control')->placeholder(trans('adminlte.user.role')) !!}
                             </div>
                         </div>
                         <div class="col-sm-2">

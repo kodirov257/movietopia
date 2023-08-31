@@ -52,7 +52,7 @@
             <div class="card-body">
                 <div class="form-group">
                     {!! Html::label(trans('adminlte.first_name'), 'first_name')->class('col-form-label'); !!}
-                    {!! Html::text('first_name', old('first_name', $user ? ($user->profile ? $user->profile->first_name : null) : null))
+                    {!! Html::text('first_name', old('first_name', $user ? ($user->profile->first_name ?? null) : null))
                             ->class('form-control' . ($errors->has('first_name') ? ' is-invalid' : '')) !!}
                     @if ($errors->has('first_name'))
                         <span class="invalid-feedback"><strong>{{ $errors->first('first_name') }}</strong></span>
@@ -61,7 +61,7 @@
 
                 <div class="form-group">
                     {!! Html::label(trans('adminlte.last_name'), 'last_name')->class('col-form-label'); !!}
-                    {!! Html::text('last_name', old('last_name', $user ? ($user->profile ? $user->profile->last_name : null) : null))
+                    {!! Html::text('last_name', old('last_name', $user ? ($user->profile->last_name ?? null) : null))
                             ->class('form-control' . ($errors->has('last_name') ? ' is-invalid' : '')) !!}
                     @if ($errors->has('last_name'))
                         <span class="invalid-feedback"><strong>{{ $errors->first('last_name') }}</strong></span>
@@ -69,7 +69,7 @@
                 </div>
                 <div class="form-group">
                     {!! Html::label(trans('adminlte.birth_date'), 'birth_date')->class('col-form-label'); !!}
-                    {!! Html::date('birth_date', old('birth_date', $user ? ($user->profile ? $user->profile->birth_date : null) : null))
+                    {!! Html::date('birth_date', old('birth_date', $user ? ($user->profile->birth_date ?? null) : null))
                             ->class('form-control' . ($errors->has('birth_date') ? ' is-invalid' : '')) !!}
                     @if ($errors->has('birth_date'))
                         <span class="invalid-feedback"><strong>{{ $errors->first('birth_date') }}</strong></span>
@@ -78,7 +78,7 @@
 
                 <div class="form-group">
                     {!! Html::label(trans('adminlte.gender'), 'gender')->class('col-form-label'); !!}
-                    {!! Html::select('gender', $genders, old('gender', $user ? ($user->profile ? $user->profile->gender : null) : null))
+                    {!! Html::select('gender', $genders, old('gender', $user ? ($user->profile->gender ?? null) : null))
                             ->class('form-control' . ($errors->has('gender') ? ' is-invalid' : '')) !!}
                     @if ($errors->has('gender'))
                         <span class="invalid-feedback"><strong>{{ $errors->first('gender') }}</strong></span>
@@ -87,7 +87,7 @@
 
                 <div class="form-group">
                     {!! Html::label(trans('adminlte.address'), 'address')->class('col-form-label'); !!}
-                    {!! Html::text('address', old('address', $user ? ($user->profile ? $user->profile->address : null) : null))
+                    {!! Html::text('address', old('address', $user ? ($user->profile->address ?? null) : null))
                             ->class('form-control' . ($errors->has('address') ? ' is-invalid' : '')) !!}
                     @if ($errors->has('address'))
                         <span class="invalid-feedback"><strong>{{ $errors->first('address') }}</strong></span>
@@ -108,7 +108,8 @@
                         <div class="form-group">
                             <label for="avatar" class="col-form-label">{{ trans('adminlte.image') }}</label>
                             <div class="file-loading">
-                                <input id="avatar-input" class="file" type="file" name="avatar" accept=".jpg,.jpeg,.png,.gif">
+                                <input id="avatar-input" class="file" type="file" name="avatar"
+                                       accept=".jpg,.jpeg,.png,.gif">
                             </div>
                             @if ($errors->has('avatar'))
                                 <span class="invalid-feedback"><strong>{{ $errors->first('avatar') }}</strong></span>
