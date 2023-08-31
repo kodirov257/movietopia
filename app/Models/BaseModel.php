@@ -14,17 +14,25 @@ class BaseModel extends Model
 
         if ($user = Auth::user()) {
             static::creating(function ($model) use ($user) {
-                $model->created_by = $user->id;
-                $model->updated_by = $user->id;
+                if (!is_null($model->created_by)) {
+                    $model->created_by = $user->id;
+                }
+                if (!is_null($model->updated_by)) {
+                    $model->updated_by = $user->id;
+                }
             });
 
             static::updating(function ($model) use ($user) {
-                $model->updated_by = $user->id;
+                if (!is_null($model->updated_by)) {
+                    $model->updated_by = $user->id;
+                }
                 $model->updated_at = Carbon::now();
             });
 
             static::saving(function ($model) use ($user) {
-                $model->updated_by = $user->id;
+                if (!is_null($model->updated_by)) {
+                    $model->updated_by = $user->id;
+                }
                 $model->updated_at = Carbon::now();
             });
         }

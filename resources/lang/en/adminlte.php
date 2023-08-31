@@ -2,7 +2,7 @@
 
 return [
 
-    'home'                        => 'Главная',
+    'home'                        => 'Home',
     'full_name'                   => 'Full name',
     'first_name'                  => 'First name',
     'last_name'                   => 'Last name',
@@ -39,9 +39,6 @@ return [
     'setup'                       => 'Setup',
     'setup_complete'              => 'Complete setup',
 
-    'male' => 'Male',
-    'female' => 'Female',
-
     'create' => 'Create',
     'save' => 'Save',
     'search' => 'Search',
@@ -57,11 +54,35 @@ return [
     'menu_title' => 'Menu title',
     'description' => 'Description',
     'keywords' => 'Keywords',
+    'image' => 'Image',
+    'files' => 'Files',
+    'status' => 'Status',
+    'birth_date' => 'Birth date',
+    'gender' => 'Gender',
+    'address' => 'Address',
+    'male' => 'Male',
+    'female' => 'Female',
     'created_by' => 'Created by',
     'updated_by' => 'Updated by',
     'created_at' => 'Created at',
     'updated_at' => 'Updated at',
     'other' => 'Other',
+
+    'user' => [
+        'name'  => 'Username',
+        'profile'  => 'Profile',
+        'add' => 'Add User',
+        'role' => 'Role',
+        'waiting' => 'Waiting',
+        'active' => 'Active',
+        'blocked' => 'Blocked',
+        'role_user' => 'User',
+        'role_moderator' => 'Moderator',
+        'role_administrator' => 'Administrator',
+        'role_critic' => 'Critic',
+        'role_manager' => 'Manager',
+        'requests' => 'Manager role requests',
+    ],
 
     'genre' => [
         'add' => 'Add Genre',

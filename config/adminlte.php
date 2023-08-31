@@ -2,6 +2,9 @@
 
 return [
 
+    'css_section_name' => 'mix_adminlte_css',
+    'javascript_section_name' => 'mix_adminlte_js',
+
     /*
     |--------------------------------------------------------------------------
     | Title
@@ -322,15 +325,15 @@ return [
 //        ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'users',
+            'url'  => '/dashboard/users',
             'icon' => 'fas fa-fw fa-user',
         ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+//        [
+//            'text' => 'change_password',
+//            'url'  => '/dashboard/settings',
+//            'icon' => 'fas fa-fw fa-lock',
+//        ],
         ['header' => 'movies'],
         [
             'text' => 'genres',

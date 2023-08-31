@@ -18,5 +18,6 @@ return [
     'information'                   => 'Information',
 
     'movies'                        => 'Movies',
+    'users'                         => 'Users',
     'genres'                        => 'Genres',
 ];
