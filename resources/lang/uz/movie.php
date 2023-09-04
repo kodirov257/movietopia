@@ -1,0 +1,37 @@
+<?php
+
+return [
+    'relatives' => [
+        'spouse' => 'Turmush o`rtog`i',
+        'spouses' => 'Turmush o`rtoqlari',
+        'wife' => 'Rafiqasi',
+        'husband' => 'Eri',
+        'children' => 'Bolalari',
+        'son' => 'O`g`li',
+        'daughter' => 'Qizi',
+        'parents' => 'Ota-onasi',
+        'father' => 'Otasi',
+        'mother' => 'Onasi',
+        'grandparents' => 'Bobo va buvilari',
+        'grandfather' => 'Bobosi',
+        'grandmother' => 'Buvisi',
+        'sibling' => 'Aka-ukasi yoki opa-singlisi',
+        'siblings' => 'Aka-uka opa-singillari',
+        'brother' => 'Aka-ukasi',
+        'sister' => 'Opa-singlisi',
+        'half_sibling' => 'Yarim aka-ukasi yoki opa-singlisi',
+        'half_brother' => 'Yarim aka-ukasi',
+        'half_sister' => 'Yarim opa-singlisi',
+        'uncle_or_aunt' => 'Amaki-tog`asi yoki amma-xolas',
+        'uncle' => 'Amakisi yoki tog`asi',
+        'aunt' => 'Ammasi yoki Xolasi',
+        'nephew_or_niece' => 'Jiyani',
+        'nephew' => 'Jiyani',
+        'niece' => 'Jiyani',
+        'cousin' => 'amakivachchasi yoki xolavachchasi',
+        'descendant' => 'Avlodi',
+        'descendants' => 'Avlodlari',
+        'ancestor' => 'Ajdodi',
+        'ancestors' => 'Ajdodlari',
+    ]
+];

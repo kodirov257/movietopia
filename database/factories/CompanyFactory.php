@@ -25,8 +25,8 @@ class CompanyFactory extends Factory
         $meta = new Meta($name, $name, $name);
         return [
             'name_uz' => $name,
-            'name_uz_cy' => fake('ru_RU')->unique()->company(),
-            'name_ru' => fake('ru_RU')->unique()->company(),
+            'name_uz_cy' => fake('ru_RU')->company(),
+            'name_ru' => fake('ru_RU')->company(),
             'name_en' => $name,
             'slug' => $slug,
             'meta_json' => $meta,

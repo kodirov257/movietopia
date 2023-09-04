@@ -1,0 +1,37 @@
+<?php
+
+return [
+    'relatives' => [
+        'spouse' => 'Spouse',
+        'spouses' => 'Spouses',
+        'wife' => 'Wife',
+        'husband' => 'Husband',
+        'children' => 'Children',
+        'son' => 'Son',
+        'daughter' => 'Daughter',
+        'parents' => 'Parents',
+        'father' => 'Father',
+        'mother' => 'Mother',
+        'grandparents' => 'Grandparents',
+        'grandfather' => 'Grandfather',
+        'grandmother' => 'Grandmother',
+        'sibling' => 'Sibling',
+        'siblings' => 'Siblings',
+        'brother' => 'Brother',
+        'sister' => 'Sister',
+        'half_sibling' => 'Half sibling',
+        'half_brother' => 'Half brother',
+        'half_sister' => 'Half sister',
+        'uncle_or_aunt' => 'Uncle or aunt',
+        'uncle' => 'Uncle',
+        'aunt' => 'Aunt',
+        'nephew_or_niece' => 'Nephew or niece',
+        'nephew' => 'Nephew',
+        'niece' => 'Niece',
+        'cousin' => 'Cousin',
+        'descendant' => 'Descendant',
+        'descendants' => 'Descendants',
+        'ancestor' => 'Ancestor',
+        'ancestors' => 'Ancestors',
+    ]
+];

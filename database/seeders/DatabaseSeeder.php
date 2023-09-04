@@ -20,8 +20,9 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            CountrySeeder::class,
+            CountryRegionSeeder::class,
             CompanySeeder::class,
+            CelebritySeeder::class,
         ]);
     }
 }

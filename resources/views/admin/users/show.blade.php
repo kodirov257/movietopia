@@ -73,7 +73,7 @@
                                 </tr>
                                 <tr>
                                     <th>@lang('adminlte.birth_date')</th>
-                                    <td>{{ $user->profile->birth_date->format('Y-m-d') }}</td>
+                                    <td>{{ $user->profile->birth_date ? $user->profile->birth_date->format('Y-m-d') : null }}</td>
                                 </tr>
                                 <tr>
                                     <th>@lang('adminlte.gender')</th>

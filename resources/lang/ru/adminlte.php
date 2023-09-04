@@ -62,6 +62,7 @@ return [
     'address' => 'Адрес',
     'male' => 'Мужчина',
     'female' => 'Женщина',
+    'type' => 'Тип',
     'created_by' => 'Добавил',
     'updated_by' => 'Редактировал',
     'created_at' => 'Добавлено',
@@ -88,8 +89,15 @@ return [
         'add' => 'Добавить Жанр',
     ],
 
-    'country' => [
-        'add' => 'Добавить Страну',
+    'country_region' => [
+        'add_country' => 'Добавить Страну',
+        'add_region' => 'Добавить Регион',
+        'name' => 'Страна или Регион',
+        'country' => 'Страна',
+        'region' => 'Регион',
+        'state' => 'Штат',
+        'city' => 'Город',
+        'parent' => 'Родительский Регион',
     ],
 
     'company' => [
@@ -98,5 +106,41 @@ return [
 
     'position' => [
         'add' => 'Добавить должность',
+    ],
+
+    'celebrity' => [
+        'add' => 'Добавить знаменитость',
+        'add_trademark' => 'Добавить Интересный Факт',
+        'add_trivia' => 'Добавить Слухи',
+        'add_quote' => 'Добавить Цитату',
+        'add_relative' => 'Добавить родственника',
+        'edit_biography' => 'Редактировать Биографию',
+        'photo' => 'Изображение',
+        'social_networks' => 'Социальные сети',
+        'live_places' => 'Места проживания',
+        'live_place' => 'Место проживания',
+        'born' => 'Место и дата рождения',
+        'birth_place' => 'Место рождения',
+        'birth_date' => 'Дата рождения',
+        'death' => 'Место и дата смерти',
+        'death_place' => 'Место смерти',
+        'death_date' => 'Дата смерти',
+        'live_date_place' => 'Живёт в :place',
+        'birth_date_place' => 'Дата рождение в :date в :place',
+        'death_date_place' => 'Дата смерти в :date в :place',
+        'profession' => 'Профессия',
+        'biography' => 'Биография',
+        'birth_name' => 'Имя при рождении',
+        'original_name' => 'Имя на родном языке',
+        'nicknames' => 'Прозвища',
+        'height_meter' => 'Рост в метре',
+        'height_foot' => 'Рост в  футе',
+        'relation_type' => 'Тип родства',
+        'marry_date' => 'Дата свадьбы',
+        'children' => 'Дети',
+        'divorce_date' => 'Дата развода',
+        'divorce_reason' => 'Причина развода',
+        'own_death' => 'Его/её собственная смерть',
+        'spouse_death' => 'Смерть супруга',
     ],
 ];

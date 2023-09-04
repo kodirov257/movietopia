@@ -5,7 +5,6 @@ namespace App\Http\Requests\Admin\Companies;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * @property int $id
  * @property string $name_uz
  * @property string $name_uz_cy
  * @property string $name_ru
@@ -30,7 +29,7 @@ class CreateRequest extends FormRequest
             'name_uz_cy' => 'nullable|string|max:255',
             'name_ru' => 'required|string|max:255',
             'name_en' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:genres',
+            'slug' => 'nullable|string|max:255|unique:companies',
             'url' => 'required|string|max:255',
             'meta_title' => ['required', 'string', 'max:255'],
             'meta_keywords' => ['required', 'string', 'max:255'],

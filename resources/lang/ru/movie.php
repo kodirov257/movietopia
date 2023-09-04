@@ -1,0 +1,37 @@
+<?php
+
+return [
+    'relatives' => [
+        'spouse' => 'Супруг',
+        'spouses' => 'Супруги',
+        'wife' => 'Wife',
+        'husband' => 'Жена',
+        'children' => 'Дети',
+        'son' => 'Сын',
+        'daughter' => 'Дочь',
+        'parents' => 'Родители',
+        'father' => 'Отец',
+        'mother' => 'Мать',
+        'grandparents' => 'Бабушка и дедушка',
+        'grandfather' => 'Дед',
+        'grandmother' => 'Бабушка',
+        'sibling' => 'Брат или сестра',
+        'siblings' => 'Братья и сестры',
+        'brother' => 'Брат',
+        'sister' => 'Сестра',
+        'half_sibling' => 'Половина брата или сестры',
+        'half_brother' => 'Сводный брат',
+        'half_sister' => 'Сводная сестра',
+        'uncle_or_aunt' => 'Дядя или тетя',
+        'uncle' => 'Дядя',
+        'aunt' => 'Тетя',
+        'nephew_or_niece' => 'Племянник или племянница',
+        'nephew' => 'Племянник',
+        'niece' => 'Племянница',
+        'cousin' => 'Двоюродный брат',
+        'descendant' => 'Потомок',
+        'descendants' => 'Потомки',
+        'ancestor' => 'Предок',
+        'ancestors' => 'Предки',
+    ]
+];

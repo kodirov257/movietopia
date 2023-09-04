@@ -7,7 +7,6 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
 /**
- * @property int $id
  * @property string $name_uz
  * @property string $name_uz_cy
  * @property string $name_ru

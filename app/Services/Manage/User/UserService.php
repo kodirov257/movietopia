@@ -31,7 +31,6 @@ class UserService
             $imageName = null;
             if ($request->avatar) {
                 $imageName = ImageHelper::getRandomName($request->avatar);
-                $this->uploadAvatar($user->id, $request->avatar, $imageName);
             }
 
             Profile::create([
@@ -43,6 +42,10 @@ class UserService
                 'address' => $request->address,
                 'avatar' => $imageName,
             ]);
+
+            if ($imageName) {
+                $this->uploadAvatar($user->id, $request->avatar, $imageName);
+            }
 
             DB::commit();
 

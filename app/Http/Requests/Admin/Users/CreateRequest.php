@@ -48,7 +48,7 @@ class CreateRequest extends FormRequest
             'birth_date' => 'nullable|date_format:Y-m-d',
             'gender' => ['numeric', Rule::in(array_keys(Profile::gendersList()))],
             'address' => 'nullable|string',
-            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

@@ -55,12 +55,47 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'namespace' => 'Adm
     Route::get('/', 'DashboardController@index')->name('home');
 
     Route::resource('users', 'UserController');
-    Route::post('users/{user}/remove-photo', 'UserController@removeAvatar')->name('remove-photo');
+    Route::post('users/{user}/remove-avatar', 'UserController@removeAvatar')->name('remove-avatar');
 
     Route::resource('genres', 'GenreController');
-    Route::resource('countries', 'CountryController');
+    Route::resource('country-regions', 'CountryRegionController');
     Route::resource('companies', 'CompanyController');
     Route::resource('positions', 'PositionController');
+
+    Route::group(['namespace' => 'Celebrity'], function () {
+        Route::resource('celebrities', 'CelebrityController');
+        Route::group(['prefix' => 'celebrities/{celebrity}', 'as' => 'celebrities.'], function () {
+            Route::get('update-biography', 'CelebrityController@editBiography')->name('biography.edit');
+            Route::put('update-biography', 'CelebrityController@updateBiography')->name('biography.update');
+            Route::post('remove-photo', 'CelebrityController@removePhoto')->name('remove_photo');
+
+            Route::resource('relatives', 'CelebrityRelativeController')->except('index');
+
+            Route::resource('trademarks', 'TrademarkController')->except('index');
+            Route::group(['prefix' => 'trademarks/{trademark}', 'as' => 'trademarks.'], function () {
+                Route::post('first', 'TrademarkController@first')->name('first');
+                Route::post('up', 'TrademarkController@up')->name('up');
+                Route::post('down', 'TrademarkController@down')->name('down');
+                Route::post('last', 'TrademarkController@last')->name('last');
+            });
+
+            Route::resource('trivias', 'TriviaController')->except('index');
+            Route::group(['prefix' => 'trivias/{trivia}', 'as' => 'trivias.'], function () {
+                Route::post('first', 'TriviaController@first')->name('first');
+                Route::post('up', 'TriviaController@up')->name('up');
+                Route::post('down', 'TriviaController@down')->name('down');
+                Route::post('last', 'TriviaController@last')->name('last');
+            });
+
+            Route::resource('quotes', 'QuoteController')->except('index');
+            Route::group(['prefix' => 'quotes/{quote}', 'as' => 'quotes.'], function () {
+                Route::post('first', 'QuoteController@first')->name('first');
+                Route::post('up', 'QuoteController@up')->name('up');
+                Route::post('down', 'QuoteController@down')->name('down');
+                Route::post('last', 'QuoteController@last')->name('last');
+            });
+        });
+    });
 
     Route::post('/darkmode/toggle', [DarkModeController::class, 'toggle'])
         ->name('darkmode.toggle');

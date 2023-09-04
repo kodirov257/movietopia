@@ -5,7 +5,6 @@ namespace App\Http\Requests\Admin\Genres;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * @property int $id
  * @property string $name_uz
  * @property string $name_uz_cy
  * @property string $name_ru

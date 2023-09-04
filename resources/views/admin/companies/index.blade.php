@@ -38,7 +38,7 @@
                     <td><a href="{{ route('dashboard.companies.show', $company) }}">{{ $company->name_uz }}</a></td>
                     <td><a href="{{ route('dashboard.companies.show', $company) }}">{{ $company->name_ru }}</a></td>
                     <td><a href="{{ route('dashboard.companies.show', $company) }}">{{ $company->name_en }}</a></td>
-                    <td>{{ $company->name_slug }}</td>
+                    <td>{{ $company->slug }}</td>
                     <td><a href="{{ $company->url }}">{{ $company->url }}</a></td>
                 </tr>
             @endforeach

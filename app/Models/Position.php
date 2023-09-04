@@ -30,6 +30,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property User $updatedBy
  *
  * @property string $name
+ * @property string $nameLow
  *
  * @mixin Eloquent
  */
@@ -60,6 +61,11 @@ class Position extends BaseModel
     public function getNameAttribute(): string
     {
         return htmlspecialchars_decode(LanguageHelper::getName($this));
+    }
+
+    public function getNameLowAttribute(): string
+    {
+        return htmlspecialchars_decode(strtolower(LanguageHelper::getName($this)));
     }
 
     ###########################################

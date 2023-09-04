@@ -62,6 +62,7 @@ return [
     'address' => 'Manzili',
     'male' => 'Erkak',
     'female' => 'Ayol',
+    'type' => 'Turi',
     'created_by' => 'tomonidan yaratilgan',
     'updated_by' => 'tomonidan yangilangan',
     'created_at' => 'Yaratilgan vaqt',
@@ -87,8 +88,15 @@ return [
         'add' => 'Janr qo`shish',
     ],
 
-    'country' => [
-        'add' => 'Mamlakat qo`shmoq',
+    'country_region' => [
+        'add_country' => 'Mamlakat yoki Hudud qo`shmoq',
+        'add_region' => 'Hudud qo`shmoq',
+        'name' => 'Mamlakat yoki Hudud',
+        'country' => 'Mamlakat',
+        'region' => 'Hudud',
+        'state' => 'Shtat',
+        'city' => 'Shahar',
+        'parent' => 'Davlati yoki kattaroq hududi',
     ],
 
     'company' => [
@@ -97,5 +105,41 @@ return [
 
     'position' => [
         'add' => 'Vazifa qo`shmoq',
+    ],
+
+    'celebrity' => [
+        'add' => 'Mashhur insonni qo`shmoq',
+        'add_trademark' => 'Qiziqarli fakt qo`shmoq',
+        'add_trivia' => 'Mish-mish qo`shmoq',
+        'add_quote' => 'Iqtibos qo`shmoq',
+        'add_relative' => 'Qarindoshini qo`shmoq',
+        'edit_biography' => 'Tarjimai holini tahrirlamoq',
+        'photo' => 'Rasmi',
+        'social_networks' => 'Ijtimoiy tarmoqlari',
+        'live_places' => 'Yashash joylari',
+        'live_place' => 'Yashash joyi',
+        'born' => 'Tug`ilgan joyi va sanasi',
+        'birth_place' => 'Tug`ilgan joyi',
+        'birth_date' => 'Tug`ilgan sanasi',
+        'death' => 'Vafot etgan joyi va sanasi',
+        'death_place' => 'Vafot etgan joyi',
+        'death_date' => 'Vafot etgan sanasi',
+        'live_date_place' => ':placeda yashaydi',
+        'birth_date_place' => ':date sanada :placeda tug`ilgan',
+        'death_date_place' => ':date sanada :placeda vafot etgan',
+        'profession' => 'Kasbi',
+        'biography' => 'Biografiyasi',
+        'birth_name' => 'Tug`ilgandagi ismi',
+        'original_name' => 'Ona tilidagi ismi',
+        'nicknames' => 'Taxalluslari',
+        'height_meter' => 'Bo`yi metrda',
+        'height_foot' => 'Bo`yi futda',
+        'relation_type' => 'Qarindoshlik turi',
+        'marry_date' => 'Turmush qurgani sanasi',
+        'children' => 'Bolalari',
+        'divorce_date' => 'Ajrashgan sanasi',
+        'divorce_reason' => 'Ajrashish sababi',
+        'own_death' => 'O`zining o`limi',
+        'spouse_death' => 'Turmush o`rtog`ining o`limi',
     ],
 ];

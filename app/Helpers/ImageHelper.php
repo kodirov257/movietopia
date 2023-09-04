@@ -10,6 +10,7 @@ use Intervention\Image\Facades\Image;
 class ImageHelper
 {
     public const FOLDER_PROFILES = 'profiles';
+    public const FOLDER_CELEBRITIES = 'celebrities';
     public const TYPE_THUMBNAIL = 'thumbs';
     public const TYPE_CUSTOM = 'custom';
     public const TYPE_ORIGINAL = 'original';

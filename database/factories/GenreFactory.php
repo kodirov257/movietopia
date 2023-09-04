@@ -23,9 +23,9 @@ class GenreFactory extends Factory
         $slug = SlugService::createSlug(Genre::class, 'slug', $name);
 
         return [
-            'name_uz' => fake('en_US')->unique()->firstName(),
-            'name_uz_cy' => fake('ru_RU')->unique()->firstName(),
-            'name_ru' => fake('ru_RU')->unique()->firstName(),
+            'name_uz' => $name,
+            'name_uz_cy' => fake('ru_RU')->firstName(),
+            'name_ru' => fake('ru_RU')->firstName(),
             'name_en' => $name,
             'slug' => $slug,
             'created_at' => Carbon::now(),

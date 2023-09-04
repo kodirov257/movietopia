@@ -62,6 +62,7 @@ return [
     'address' => 'Манзили',
     'male' => 'Эркак',
     'female' => 'Аёл',
+    'type' => 'Тури',
     'created_by' => 'томонидан яратилган',
     'updated_by' => 'томонидан янгиланган',
     'created_at' => 'Яратилган вақт',
@@ -87,8 +88,15 @@ return [
         'add' => 'Жанр қўшиш',
     ],
 
-    'country' => [
-        'add' => 'Мамлакат қўшмоқ',
+    'country_region' => [
+        'add_country' => 'Мамлакат қўшмоқ',
+        'add_region' => 'Ҳудуд қўшмоқ',
+        'name' => 'Мамлакат ёки Ҳудуд',
+        'country' => 'Мамлакат',
+        'region' => 'Ҳудуд',
+        'state' => 'Штат',
+        'city' => 'Шаҳар',
+        'parent' => 'Давлати ёки каттароқ ҳудуди',
     ],
 
     'company' => [
@@ -97,5 +105,41 @@ return [
 
     'position' => [
         'add' => 'Вазифа қўшмоқ',
+    ],
+
+    'celebrity' => [
+        'add' => 'Машҳур инсонни қўшмоқ',
+        'add_trademark' => 'Қизиқарли факт қўшмоқ',
+        'add_trivia' => 'Миш-миш қўшмоқ',
+        'add_quote' => 'Иқтобос қўшмоқ',
+        'add_relative' => 'Қариндошини қўшмоқ',
+        'edit_biography' => 'Таржимаи ҳолини таҳрирламоқ',
+        'photo' => 'Расми',
+        'social_networks' => 'Ижтимоий тармоқлари',
+        'live_places' => 'Яшаш жойлари',
+        'live_place' => 'Яшаш жойи',
+        'born' => 'Туғилган жойи ва санаси',
+        'birth_place' => 'Туғилган жойи',
+        'birth_date' => 'Туғилган санаси',
+        'death' => 'Вафот этган жойи ва санаси',
+        'death_place' => 'Вафот этган жойи',
+        'death_date' => 'Вафот этган санаси',
+        'live_date_place' => ':placeда яшайди',
+        'birth_date_place' => ':date санада :placeда туғилган',
+        'death_date_place' => ':date санада :placeда вафот этган',
+        'profession' => 'Касби',
+        'biography' => 'Биографияси',
+        'birth_name' => 'Туғилгандаги исми',
+        'original_name' => 'Она тилидаги исми',
+        'nicknames' => 'Тахаллуслари',
+        'height_meter' => 'Бўйи метрда',
+        'height_foot' => 'Бўйи футда',
+        'relation_type' => 'Қариндошлик тури',
+        'marry_date' => 'Турмуш қургани санаси',
+        'children' => 'Болалари',
+        'divorce_date' => 'Ажрашган санаси',
+        'divorce_reason' => 'Ажрашиш сабаби',
+        'own_death' => 'Ўзининг ўлими',
+        'spouse_death' => 'Турмуш ўртоғининг ўлими',
     ],
 ];

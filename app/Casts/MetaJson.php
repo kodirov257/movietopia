@@ -3,6 +3,7 @@
 namespace App\Casts;
 
 use App\Entity\Meta;
+use App\Models\Celebrity\Celebrity;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Model;
 use InvalidArgumentException;
@@ -21,11 +22,15 @@ class MetaJson implements CastsAttributes
      */
     public function get(Model $model, string $key, mixed $value, array $attributes): Meta
     {
-        $metaInfoArray = json_decode($value, true, 512, JSON_THROW_ON_ERROR);
-        $title = $model->name_en ?? $model->title_en;
+        $metaInfoArray = json_decode($value, true, 512, JSON_THROW_ON_ERROR) ;
+        if ($model instanceof Celebrity) {
+            $title = $model->fullName;
+        } else {
+            $title = $model->name_en ?? $model->title_en;
+        }
         return new Meta(
             isset($metaInfoArray['title']) && !empty($metaInfoArray['title']) ? $metaInfoArray['title'] : $title,
-            isset($metaInfoArray['keywords']) && !empty($metaInfoArray['keywords']) ? $metaInfoArray['keywords'] : implode(', ', array_merge([$title], explode(' ', $title))),
+            isset($metaInfoArray['keywords']) && !empty($metaInfoArray['keywords']) ? $metaInfoArray['keywords'] : implode(', ', array_merge([$title])),
             isset($metaInfoArray['description']) && !empty($metaInfoArray['description']) ? $metaInfoArray['description'] : ''
         );
     }

@@ -62,6 +62,7 @@ return [
     'address' => 'Address',
     'male' => 'Male',
     'female' => 'Female',
+    'type' => 'Type',
     'created_by' => 'Created by',
     'updated_by' => 'Updated by',
     'created_at' => 'Created at',
@@ -88,8 +89,15 @@ return [
         'add' => 'Add Genre',
     ],
 
-    'country' => [
-        'add' => 'Add Country',
+    'country_region' => [
+        'add_country' => 'Add Country',
+        'add_region' => 'Add Region',
+        'name' => 'Country',
+        'country' => 'Country or Region',
+        'region' => 'Region',
+        'state' => 'State',
+        'city' => 'City',
+        'parent' => 'Parent Region',
     ],
 
     'company' => [
@@ -98,5 +106,41 @@ return [
 
     'position' => [
         'add' => 'Add Position',
+    ],
+
+    'celebrity' => [
+        'add' => 'Add celebrity',
+        'add_trademark' => 'Add Interesting Fact',
+        'add_trivia' => 'Add Trivia',
+        'add_quote' => 'Add Quotation',
+        'add_relative' => 'Add relative',
+        'edit_biography' => 'Edit Biography',
+        'photo' => 'Photo',
+        'social_networks' => 'Social Networks',
+        'live_places' => 'Live places',
+        'live_place' => 'Live place',
+        'born' => 'Born date and place',
+        'birth_place' => 'Birth place',
+        'birth_date' => 'Birth date',
+        'death' => 'Death date and place',
+        'death_place' => 'Death place',
+        'death_date' => 'Death date',
+        'live_date_place' => 'Lives in :place',
+        'birth_date_place' => 'Was born in :date in :place',
+        'death_date_place' => 'Died in :date in :place',
+        'profession' => 'Profession',
+        'biography' => 'Biography',
+        'birth_name' => 'Birth name',
+        'original_name' => 'Original name',
+        'nicknames' => 'Nicknames',
+        'height_meter' => 'Height in meter',
+        'height_foot' => 'Height in foot',
+        'relation_type' => 'Kinship type',
+        'marry_date' => 'Marry date',
+        'children' => 'Children',
+        'divorce_date' => 'Divorce date',
+        'divorce_reason' => 'Divorce reason',
+        'own_death' => 'Own death',
+        'spouse_death' => 'Spouse`s death',
     ],
 ];

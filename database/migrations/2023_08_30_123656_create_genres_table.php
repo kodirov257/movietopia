@@ -25,7 +25,8 @@ return new class extends Migration
         });
 
         Schema::table('genres', function (Blueprint $table) {
-            $table->unique(['name_uz', 'name_ru', 'name_en']);
+            $table->unique('name_en');
+            $table->unique('slug');
             $table->foreign('created_by')->references('id')->on('users')->onDelete('restrict');
             $table->foreign('updated_by')->references('id')->on('users')->onDelete('restrict');
         });

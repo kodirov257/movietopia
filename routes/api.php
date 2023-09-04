@@ -34,6 +34,9 @@ Route::group(['as' => 'api.', 'namespace' => 'Api'], function () {
 
         Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
     });
+
+    Route::get('/search-regions', 'SearchController@searchRegions');
+    Route::get('/search-celebrities', 'SearchController@searchCelebrities');
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
