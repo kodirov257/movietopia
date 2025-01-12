@@ -81,15 +81,14 @@ services:
       - movietopia
 
   redis:
-    image: redis
+    image: redis:7.4-alpine
     restart: unless-stopped
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
     ports:
       - 6379:6379
     container_name: movietopia-redis
     volumes:
       - ./:/var/www/html:cached
+    command: redis-server --requirepass secret
     networks:
       - movietopia
 

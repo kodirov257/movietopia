@@ -28,9 +28,13 @@ class TrademarkController extends Controller
 
     public function store(CreateRequest $request, Celebrity $celebrity): RedirectResponse
     {
-        $company = $this->service->create($celebrity->id, $request);
-        session()->flash('message', 'запись обновлён ');
-        return redirect()->route('dashboard.celebrities.trademarks.show', $company);
+        try {
+            $company = $this->service->addTrademark($celebrity->id, $request);
+            session()->flash('message', 'запись обновлён ');
+            return redirect()->route('dashboard.celebrities.trademarks.show', $company);
+        } catch (\Exception|\Throwable $e) {
+            return back()->with('error', $e->getMessage());
+        }
     }
 
     public function show(Celebrity $celebrity, Trademark $trademark): View
@@ -45,9 +49,13 @@ class TrademarkController extends Controller
 
     public function update(UpdateRequest $request, Celebrity $celebrity, Trademark $trademark): RedirectResponse
     {
-        $this->service->update($celebrity->id, $trademark->id, $request);
-        session()->flash('message', 'запись обновлён ');
-        return redirect()->route('dashboard.celebrities.trademarks.show', ['celebrity' => $celebrity, 'trademark' => $trademark]);
+        try {
+            $this->service->updateTrademark($celebrity->id, $trademark->id, $request);
+            session()->flash('message', 'запись обновлён ');
+            return redirect()->route('dashboard.celebrities.trademarks.show', ['celebrity' => $celebrity, 'trademark' => $trademark]);
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
     }
 
     public function destroy(Celebrity $celebrity, Trademark $trademark): RedirectResponse
@@ -62,6 +70,46 @@ class TrademarkController extends Controller
             session()->flash('message', 'запись обновлён ');
             return redirect()->route('dashboard.celebrities.show', $celebrity);
         } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function first(Celebrity $celebrity, Trademark $trademark) {
+
+        try {
+            $this->service->moveTrademarkToFirst($celebrity->id, $trademark->id);
+            return redirect()->route('dashboard.celebrities.show', $celebrity);
+        } catch (\Exception|\Throwable $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function up(Celebrity $celebrity, Trademark $trademark) {
+
+        try {
+            $this->service->moveTrademarkUp($celebrity->id, $trademark->id);
+            return redirect()->route('dashboard.celebrities.show', $celebrity);
+        } catch (\Exception|\Throwable $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function down(Celebrity $celebrity, Trademark $trademark) {
+
+        try {
+            $this->service->moveTrademarkDown($celebrity->id, $trademark->id);
+            return redirect()->route('dashboard.celebrities.show', $celebrity);
+        } catch (\Exception|\Throwable $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function last(Celebrity $celebrity, Trademark $trademark) {
+
+        try {
+            $this->service->moveTrademarkToLast($celebrity->id, $trademark->id);
+            return redirect()->route('dashboard.celebrities.show', $celebrity);
+        } catch (\Exception|\Throwable $e) {
             return back()->with('error', $e->getMessage());
         }
     }

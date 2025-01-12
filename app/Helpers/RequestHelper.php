@@ -8,6 +8,6 @@ class RequestHelper
 {
     public static function isApiRequest(): bool
     {
-        return request()->wantsJson();
+        return request()?->wantsJson();
     }
 }

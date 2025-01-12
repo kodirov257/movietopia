@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('celebrity_trademarks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('celebrity_id');
+            $table->unsignedBigInteger('celebrity_id')->index();
             $table->text('trademark_uz');
             $table->text('trademark_uz_cy');
             $table->text('trademark_ru');

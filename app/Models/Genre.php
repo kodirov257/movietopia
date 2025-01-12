@@ -5,13 +5,16 @@ namespace App\Models;
 use App\Casts\MetaJson;
 use App\Entity\Meta;
 use App\Helpers\LanguageHelper;
+use App\Models\Film\Film;
+use App\Models\Film\FilmGenre;
 use App\Models\User\User;
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Eloquent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
@@ -26,6 +29,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  *
+ * @property FilmGenre[] $genreFilms
+ * @property Film[] $films
  * @property User $createdBy
  * @property User $updatedBy
  *
@@ -66,6 +71,16 @@ class Genre extends BaseModel
 
 
     ########################################### Relations
+
+    public function genreFilms(): HasMany|FilmGenre
+    {
+        return $this->hasMany(FilmGenre::class, 'genre_id', 'id');
+    }
+
+    public function films(): BelongsToMany|Film
+    {
+        return $this->belongsToMany(Film::class, 'film_film_genres', 'genre_id', 'film_id');
+    }
 
     public function createdBy(): BelongsTo|User
     {

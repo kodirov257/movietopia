@@ -32,7 +32,7 @@ class CreateRequest extends FormRequest
             'name_ru' => 'required|string|max:255|unique:countries_regions,name_ru,NULL,id,parent_id,' . ($this['parent'] ?: 'NULL'),
             'name_en' => 'required|string|max:255|unique:countries_regions,name_en,NULL,id,parent_id,' . ($this['parent'] ?: 'NULL'),
             'parent' => 'nullable|exists:countries_regions,id',
-            'type' => ['required_with_all::parent', 'string', Rule::in([CountryRegion::STATE, CountryRegion::CITY, CountryRegion::REGION])],
+            'type' => ['required_with_all:parent', 'string', Rule::in([CountryRegion::STATE, CountryRegion::CITY, CountryRegion::REGION])],
             'slug' => 'nullable|string|max:255|unique:countries_regions,slug,NULL,id,parent_id,' . ($this['parent'] ?: 'NULL'),
             'meta_title' => ['required', 'string', 'max:255'],
             'meta_keywords' => ['required', 'string', 'max:255'],

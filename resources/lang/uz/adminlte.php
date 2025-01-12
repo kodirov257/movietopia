@@ -38,6 +38,8 @@ return [
     'google2fa_message2'          => 'Davom etishdan oldin Google Authenticator ilovasini sozlashingiz kerak. Aks holda tizimga kira olmaysiz',
     'setup'                       => 'Sozlash',
     'setup_complete'              => 'Sozlashni yakunlamoq',
+    'date'                        => 'Sana',
+    'release-date'                => 'Ishlab chiqarish sanasi',
 
     'create' => 'Yaratmoq',
     'save' => 'Saqlamoq',
@@ -47,6 +49,7 @@ return [
     'delete' => 'O`chirmoq',
     'delete_confirmation_message' => 'Ishonchingiz komilmi?',
     'main' => 'Asosiy',
+    'add' => 'Qo`shmoq',
 
     'id' => 'ID',
     'name' => 'Nomi',
@@ -88,6 +91,10 @@ return [
         'add' => 'Janr qo`shish',
     ],
 
+    'types' => [
+        'add' => 'Turini qo`shish',
+    ],
+
     'country_region' => [
         'add_country' => 'Mamlakat yoki Hudud qo`shmoq',
         'add_region' => 'Hudud qo`shmoq',
@@ -105,6 +112,14 @@ return [
 
     'position' => [
         'add' => 'Vazifa qo`shmoq',
+    ],
+
+    'goof_type' => [
+        'add' => 'Xato turini qo`shmoq',
+    ],
+
+    'language' => [
+        'add' => 'Til qo`shmoq',
     ],
 
     'celebrity' => [
@@ -141,5 +156,26 @@ return [
         'divorce_reason' => 'Ajrashish sababi',
         'own_death' => 'O`zining o`limi',
         'spouse_death' => 'Turmush o`rtog`ining o`limi',
+    ],
+
+    'film' => [
+        'add' => 'Film qo`shmoq',
+        'draft' => 'Qoralama',
+        'moderation' => 'Moderatsiya talab qilinadi',
+        'deleted' => 'O`chirilgan',
+        'active' => 'Faol',
+        'connected_film' => 'Bog`langan filmi',
+        'location' => 'Joylashuv',
+        'company' => 'Kompaniya',
+        'edit_description' => 'Tavsifini tahrirlash',
+        'edit_storyline' => 'Sujetni tahrirlash',
+        'add_slogan' => 'Shior qo`shmoq',
+        'add_synopsis' => 'Qisqa sharh qo`shmoq',
+        'add_trivia' => 'Mish-mish qo`shmoq',
+        'add_connection' => 'Bog`langan film qo`shmoq',
+        'add_location' => 'Joylashuv qo`shmoq',
+        'add_company' => 'Kompaniya qo`shmoq',
+        'add_release_date' => 'Ishlab chiqarilgan sanani qo`shmoq',
+        'add_alternate_version' => 'Muqobil versiyasini qo`shmoq',
     ],
 ];

@@ -342,6 +342,12 @@ return [
             'can'  => 'manage-movie',
         ],
         [
+            'text' => 'types',
+            'url'  => '/dashboard/types',
+            'icon' => 'fas fa-fw fa-file',
+            'can'  => 'manage-movie',
+        ],
+        [
             'text' => 'countries',
             'url'  => '/dashboard/country-regions',
             'icon' => 'fas fa-fw fa-file',
@@ -398,6 +404,23 @@ return [
 //                    'url'  => '#',
 //                ],
             ],
+        ],
+        [
+            'text'    => 'movies',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'films',
+                    'url'  => '/dashboard/films',
+                    'icon' => 'fas fa-fw fa-file',
+                    'can'  => 'manage-movie',
+                ],
+            ],
+        ],
+        [
+            'text' => 'languages',
+            'url'  => '/dashboard/languages',
+            'icon' => 'fas fa-fw fa-language',
         ],
         /*['header' => 'labels'],
         [

@@ -158,7 +158,7 @@ class Celebrity extends BaseModel
 
     public function getProfessions($lang = null): string
     {
-        $professions = LanguageHelper::getProfessions($this, $lang);
+        $professions = LanguageHelper::getAttribute($this, 'professions', $lang);
 
         if (is_array($professions)) {
             return htmlspecialchars_decode(implode(', ', $professions));
@@ -215,7 +215,7 @@ class Celebrity extends BaseModel
 
     public function getBiographyAttribute(): string
     {
-        return htmlspecialchars_decode(LanguageHelper::getBiography($this));
+        return htmlspecialchars_decode(LanguageHelper::getAttribute($this, 'biography'));
     }
 
     public function getPhotoThumbnailAttribute(): string

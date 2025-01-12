@@ -28,9 +28,13 @@ class TriviaController extends Controller
 
     public function store(CreateRequest $request, Celebrity $celebrity): RedirectResponse
     {
-        $company = $this->service->create($celebrity->id, $request);
-        session()->flash('message', 'запись обновлён ');
-        return redirect()->route('dashboard.celebrities.trivias.show', $company);
+        try {
+            $company = $this->service->addTrivia($celebrity->id, $request);
+            session()->flash('message', 'запись обновлён ');
+            return redirect()->route('dashboard.celebrities.trivias.show', $company);
+        } catch (\Exception|\Throwable $e) {
+            return back()->with('error', $e->getMessage());
+        }
     }
 
     public function show(Celebrity $celebrity, Trivia $trivia): View
@@ -45,9 +49,13 @@ class TriviaController extends Controller
 
     public function update(UpdateRequest $request, Celebrity $celebrity, Trivia $trivia): RedirectResponse
     {
-        $this->service->update($celebrity->id, $trivia->id, $request);
-        session()->flash('message', 'запись обновлён ');
-        return redirect()->route('dashboard.celebrities.trivias.show', ['celebrity' => $celebrity, 'trivia' => $trivia]);
+        try {
+            $this->service->updateTrivia($celebrity->id, $trivia->id, $request);
+            session()->flash('message', 'запись обновлён ');
+            return redirect()->route('dashboard.celebrities.trivias.show', ['celebrity' => $celebrity, 'trivia' => $trivia]);
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
     }
 
     public function destroy(Celebrity $celebrity, Trivia $trivia): RedirectResponse
@@ -62,6 +70,46 @@ class TriviaController extends Controller
             session()->flash('message', 'запись обновлён ');
             return redirect()->route('dashboard.celebrities.show', $celebrity);
         } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function first(Celebrity $celebrity, Trivia $trivia) {
+
+        try {
+            $this->service->moveTriviaToFirst($celebrity->id, $trivia->id);
+            return redirect()->route('dashboard.celebrities.show', $celebrity);
+        } catch (\Exception|\Throwable $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function up(Celebrity $celebrity, Trivia $trivia) {
+
+        try {
+            $this->service->moveTriviaUp($celebrity->id, $trivia->id);
+            return redirect()->route('dashboard.celebrities.show', $celebrity);
+        } catch (\Exception|\Throwable $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function down(Celebrity $celebrity, Trivia $trivia) {
+
+        try {
+            $this->service->moveTriviaDown($celebrity->id, $trivia->id);
+            return redirect()->route('dashboard.celebrities.show', $celebrity);
+        } catch (\Exception|\Throwable $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function last(Celebrity $celebrity, Trivia $trivia) {
+
+        try {
+            $this->service->moveTriviaToLast($celebrity->id, $trivia->id);
+            return redirect()->route('dashboard.celebrities.show', $celebrity);
+        } catch (\Exception|\Throwable $e) {
             return back()->with('error', $e->getMessage());
         }
     }

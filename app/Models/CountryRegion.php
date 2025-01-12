@@ -5,6 +5,10 @@ namespace App\Models;
 use App\Casts\MetaJson;
 use App\Entity\Meta;
 use App\Helpers\LanguageHelper;
+use App\Models\Film\Film;
+use App\Models\Film\FilmCountry;
+use App\Models\Film\FilmLocation;
+use App\Models\Film\FilmReleaseDate;
 use App\Models\User\User;
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -12,6 +16,7 @@ use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
@@ -34,6 +39,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property CountryRegion[] $states
  * @property CountryRegion[] $regions
  * @property CountryRegion[] $cities
+ * @property FilmReleaseDate[] $releaseDates
+ * @property FilmCountry[] $countryFilms
+ * @property FilmLocation[] $locationFilms
  * @property User $createdBy
  * @property User $updatedBy
  *
@@ -127,10 +135,7 @@ class CountryRegion extends BaseModel
 
     ########################################### Relations
 
-    /**
-     * @return BelongsTo|self[]
-     */
-    public function parent(): BelongsTo|array
+    public function parent(): BelongsTo|CountryRegion
     {
         return $this->belongsTo(self::class, 'parent_id', 'id');
     }
@@ -168,6 +173,21 @@ class CountryRegion extends BaseModel
     {
         return $this->hasMany(self::class, 'parent_id', 'id')
             ->where('type', self::CITY);
+    }
+
+    public function releaseDates(): HasMany|FilmReleaseDate
+    {
+        return $this->hasMany(FilmReleaseDate::class, 'country_id', 'id')->orderByDesc('release_date');
+    }
+
+    public function countryFilms(): HasMany|FilmCountry
+    {
+        return $this->hasMany(FilmCountry::class, 'country_id', 'id');
+    }
+
+    public function locationFilms(): HasMany|FilmLocation
+    {
+        return $this->hasMany(FilmLocation::class, 'location_id', 'id');
     }
 
     public function createdBy(): BelongsTo|User

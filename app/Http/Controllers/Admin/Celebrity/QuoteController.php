@@ -28,9 +28,13 @@ class QuoteController extends Controller
 
     public function store(CreateRequest $request, Celebrity $celebrity): RedirectResponse
     {
-        $company = $this->service->create($celebrity->id, $request);
-        session()->flash('message', 'запись обновлён ');
-        return redirect()->route('dashboard.celebrities.quotes.show', $company);
+        try {
+            $quote = $this->service->addQuote($celebrity->id, $request);
+            session()->flash('message', 'запись обновлён ');
+            return redirect()->route('dashboard.celebrities.quotes.show', $quote);
+        } catch (\Exception|\Throwable $e) {
+            return back()->with('error', $e->getMessage());
+        }
     }
 
     public function show(Celebrity $celebrity, Quote $quote): View
@@ -45,9 +49,13 @@ class QuoteController extends Controller
 
     public function update(UpdateRequest $request, Celebrity $celebrity, Quote $quote): RedirectResponse
     {
-        $this->service->update($celebrity->id, $quote->id, $request);
-        session()->flash('message', 'запись обновлён ');
-        return redirect()->route('dashboard.celebrities.quotes.show', ['celebrity' => $celebrity, 'quote' => $quote]);
+        try {
+            $this->service->updateQuote($celebrity->id, $quote->id, $request);
+            session()->flash('message', 'запись обновлён ');
+            return redirect()->route('dashboard.celebrities.quotes.show', ['celebrity' => $celebrity, 'quote' => $quote]);
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
     }
 
     public function destroy(Celebrity $celebrity, Quote $quote): RedirectResponse
@@ -62,6 +70,46 @@ class QuoteController extends Controller
             session()->flash('message', 'запись обновлён ');
             return redirect()->route('dashboard.celebrities.show', $celebrity);
         } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function first(Celebrity $celebrity, Quote $quote) {
+
+        try {
+            $this->service->moveQuoteToFirst($celebrity->id, $quote->id);
+            return redirect()->route('dashboard.celebrities.show', $celebrity);
+        } catch (\Exception|\Throwable $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function up(Celebrity $celebrity, Quote $quote) {
+
+        try {
+            $this->service->moveQuoteUp($celebrity->id, $quote->id);
+            return redirect()->route('dashboard.celebrities.show', $celebrity);
+        } catch (\Exception|\Throwable $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function down(Celebrity $celebrity, Quote $quote) {
+
+        try {
+            $this->service->moveQuoteDown($celebrity->id, $quote->id);
+            return redirect()->route('dashboard.celebrities.show', $celebrity);
+        } catch (\Exception|\Throwable $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function last(Celebrity $celebrity, Quote $quote) {
+
+        try {
+            $this->service->moveQuoteToLast($celebrity->id, $quote->id);
+            return redirect()->route('dashboard.celebrities.show', $celebrity);
+        } catch (\Exception|\Throwable $e) {
             return back()->with('error', $e->getMessage());
         }
     }

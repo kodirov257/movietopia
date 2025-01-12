@@ -1,6 +1,6 @@
 <x-admin-page-layout>
     @section('content')
-        <form method="POST" action="{{ route('dashboard.users.update', $genre) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('dashboard.users.update', $user) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 

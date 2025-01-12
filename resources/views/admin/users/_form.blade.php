@@ -123,7 +123,7 @@
     </div>
 </div>
 
-<input name="userId" type="hidden" value="{{$user ? $user->id : null}}">
+<input name="userId" type="hidden" value="{{ $user->id ?? null }}">
 
 <div class="form-group">
     <button type="submit" class="btn btn-primary">{{ trans('adminlte.' . ($user ? 'edit' : 'save')) }}</button>

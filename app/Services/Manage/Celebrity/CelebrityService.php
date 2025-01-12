@@ -211,10 +211,10 @@ class CelebrityService
         return Storage::disk('public')->deleteDirectory('/files/' . ImageHelper::FOLDER_CELEBRITIES . '/' . $id);
     }
 
-    private function uploadPhoto(int $markId, UploadedFile $photo, string $imageName): void
+    private function uploadPhoto(int $celebrityId, UploadedFile $photo, string $imageName): void
     {
-        ImageHelper::saveThumbnail($markId, ImageHelper::FOLDER_CELEBRITIES, $photo, $imageName);
-        ImageHelper::saveCustom($markId, ImageHelper::FOLDER_CELEBRITIES, $photo, $imageName, 128, 96);
-        ImageHelper::saveOriginal($markId, ImageHelper::FOLDER_CELEBRITIES, $photo, $imageName);
+        ImageHelper::saveThumbnail($celebrityId, ImageHelper::FOLDER_CELEBRITIES, $photo, $imageName);
+        ImageHelper::saveCustom($celebrityId, ImageHelper::FOLDER_CELEBRITIES, $photo, $imageName, 128, 96);
+        ImageHelper::saveOriginal($celebrityId, ImageHelper::FOLDER_CELEBRITIES, $photo, $imageName);
     }
 }

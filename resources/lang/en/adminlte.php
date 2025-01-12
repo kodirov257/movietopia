@@ -38,6 +38,8 @@ return [
     'google2fa_message2'          => 'You must set up your Google Authenticator app before continuing. You will be unable to login otherwise',
     'setup'                       => 'Setup',
     'setup_complete'              => 'Complete setup',
+    'date'                        => 'Date',
+    'release-date'                => 'Release Date',
 
     'create' => 'Create',
     'save' => 'Save',
@@ -47,6 +49,7 @@ return [
     'delete' => 'Delete',
     'delete_confirmation_message' => 'Are you sure?',
     'main' => 'Main',
+    'add' => 'Add',
 
     'id' => 'ID',
     'name' => 'Name',
@@ -89,6 +92,10 @@ return [
         'add' => 'Add Genre',
     ],
 
+    'types' => [
+        'add' => 'Add type',
+    ],
+
     'country_region' => [
         'add_country' => 'Add Country',
         'add_region' => 'Add Region',
@@ -106,6 +113,14 @@ return [
 
     'position' => [
         'add' => 'Add Position',
+    ],
+
+    'goof_type' => [
+        'add' => 'Add Goof Type',
+    ],
+
+    'language' => [
+        'add' => 'Add language',
     ],
 
     'celebrity' => [
@@ -142,5 +157,27 @@ return [
         'divorce_reason' => 'Divorce reason',
         'own_death' => 'Own death',
         'spouse_death' => 'Spouse`s death',
+    ],
+
+    'film' => [
+        'add' => 'Add film',
+        'draft' => 'Draft',
+        'moderation' => 'Moderation needed',
+        'deleted' => 'Deleted',
+        'active' => 'Active',
+        'connected_film' => 'Connected film',
+        'location' => 'Location',
+        'company' => 'Company',
+        'edit_description' => 'Edit Description',
+        'edit_storyline' => 'Edit Storyline',
+        'add_slogan' => 'Add Slogan',
+        'add_synopsis' => 'Add Synopsis',
+        'add_trivia' => 'Add Trivia',
+        'add_goof' => 'Add Goof',
+        'add_connection' => 'Add Connection',
+        'add_location' => 'Add Location',
+        'add_company' => 'Add Company',
+        'add_release_date' => 'Add Release Date',
+        'add_alternate_version' => 'Add Alternate Version',
     ],
 ];

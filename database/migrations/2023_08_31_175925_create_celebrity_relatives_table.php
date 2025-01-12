@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('celebrity_relatives', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('celebrity_id');
-            $table->unsignedBigInteger('relative_id')->nullable();
+            $table->unsignedBigInteger('celebrity_id')->index();
+            $table->unsignedBigInteger('relative_id')->index()->nullable();
             $table->string('first_name_uz')->nullable();
             $table->string('first_name_uz_cy')->nullable();
             $table->string('first_name_ru')->nullable();

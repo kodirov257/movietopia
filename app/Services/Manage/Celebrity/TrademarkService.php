@@ -13,7 +13,7 @@ class TrademarkService
     /**
      * @throws \Throwable
      */
-    public function create(int $id, CreateRequest $request): Trademark
+    public function addTrademark(int $id, CreateRequest $request): Trademark
     {
         $celebrity = Celebrity::findOrFail($id);
 
@@ -37,7 +37,7 @@ class TrademarkService
         }
     }
 
-    public function update(int $id, int $trademarkId, UpdateRequest $request): void
+    public function updateTrademark(int $id, int $trademarkId, UpdateRequest $request): void
     {
         $celebrity = Celebrity::findOrFail($id);
         $trademark = $celebrity->trademarks()->findOrFail($trademarkId);

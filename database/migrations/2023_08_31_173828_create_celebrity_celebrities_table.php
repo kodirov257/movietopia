@@ -34,14 +34,14 @@ return new class extends Migration
             $table->text('biography_uz_cy')->nullable();
             $table->text('biography_ru')->nullable();
             $table->text('biography_en')->nullable();
-            $table->unsignedInteger('live_place')->nullable();
+            $table->unsignedInteger('live_place')->index()->nullable();
             $table->string('original_name')->nullable();
             $table->string('birth_name')->nullable();
             $table->jsonb('nicknames')->nullable();
             $table->timestamp('birth_date')->nullable();
-            $table->unsignedInteger('birth_place')->nullable();
+            $table->unsignedInteger('birth_place')->index()->nullable();
             $table->timestamp('death_date')->nullable();
-            $table->unsignedInteger('death_place')->nullable();
+            $table->unsignedInteger('death_place')->index()->nullable();
             $table->string('gender')->nullable();
             $table->float('height_foot')->nullable();
             $table->float('height_meter')->nullable();

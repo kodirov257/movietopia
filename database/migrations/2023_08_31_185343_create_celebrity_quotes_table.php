@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('celebrity_quotes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('celebrity_id');
+            $table->unsignedBigInteger('celebrity_id')->index();
             $table->text('quote_uz');
             $table->text('quote_uz_cy');
             $table->text('quote_ru');

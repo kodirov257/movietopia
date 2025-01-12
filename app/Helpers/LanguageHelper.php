@@ -31,16 +31,6 @@ class LanguageHelper
         return self::getAttribute($className, 'last_name', $lang) ?? '';
     }
 
-    public static function getProfessions($className, $lang = null): string|array
-    {
-        return self::getAttribute($className, 'professions', $lang) ?? '';
-    }
-
-    public static function getBiography($className, $lang = null): string
-    {
-        return self::getAttribute($className, 'biography', $lang) ?? '';
-    }
-
     public static function getTrivia($className, $lang = null): string
     {
         return self::getAttribute($className, 'trivia', $lang) ?? '';
@@ -54,6 +44,26 @@ class LanguageHelper
     public static function getQuote($className, $lang = null): string
     {
         return self::getAttribute($className, 'quote', $lang) ?? '';
+    }
+
+    public static function getTitle($className, $lang = null): string
+    {
+        return self::getAttribute($className, 'title', $lang) ?? '';
+    }
+
+    public static function getDescription($className, $lang = null): string
+    {
+        return self::getAttribute($className, 'description', $lang) ?? '';
+    }
+
+    public static function getSlogan($className, $lang = null): string
+    {
+        return self::getAttribute($className, 'slogan', $lang) ?? '';
+    }
+
+    public static function getDetails($className, $lang = null): string
+    {
+        return self::getAttribute($className, 'details', $lang) ?? '';
     }
 
     public static function getAttribute($className, string $attributeName, $lang = null): string|array|null

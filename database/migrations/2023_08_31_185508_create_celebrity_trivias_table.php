@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('celebrity_trivias', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('celebrity_id');
+            $table->unsignedBigInteger('celebrity_id')->index();
             $table->text('trivia_uz');
             $table->text('trivia_uz_cy');
             $table->text('trivia_ru');
