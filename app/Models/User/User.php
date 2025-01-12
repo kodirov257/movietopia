@@ -81,6 +81,19 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    public static function boot(): void
+    {
+        parent::boot();
+
+        static::updating(function ($model) {
+            $model->updated_at = Carbon::now();
+        });
+
+        static::saving(function ($model) {
+            $model->updated_at = Carbon::now();
+        });
+    }
+
     public function isWait(): bool
     {
         return $this->status === self::STATUS_WAIT;
@@ -132,6 +145,30 @@ class User extends Authenticatable implements MustVerifyEmail
             get: fn ($value) => decrypt($value),
             set: fn ($value) => encrypt($value),
         );
+    }
+
+    public static function rolesList(): array
+    {
+        return [
+            self::ROLE_USER => trans('adminlte.user.role_user'),
+            self::ROLE_MODERATOR => trans('adminlte.user.role_moderator'),
+            self::ROLE_CRITIC => trans('adminlte.user.role_moderator'),
+            self::ROLE_ADMIN => trans('adminlte.user.role_administrator'),
+        ];
+    }
+
+    public function roleName(): string
+    {
+        return self::rolesList()[$this->role];
+    }
+
+    public static function statusesList(): array
+    {
+        return [
+            self::STATUS_WAIT => trans('adminlte.user.waiting'),
+            self::STATUS_ACTIVE => trans('adminlte.user.active'),
+            self::STATUS_BLOCKED => trans('adminlte.user.blocked'),
+        ];
     }
 
 

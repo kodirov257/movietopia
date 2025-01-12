@@ -2,6 +2,9 @@
 
 return [
 
+    'css_section_name' => 'mix_adminlte_css',
+    'javascript_section_name' => 'mix_adminlte_js',
+
     /*
     |--------------------------------------------------------------------------
     | Title
@@ -253,7 +256,7 @@ return [
     */
 
     'use_route_url' => true,
-    'dashboard_url' => false,
+    'dashboard_url' => 'dashboard.home',
     'logout_url' => 'logout',
     'login_url' => 'signin',
     'register_url' => 'register.show',
@@ -293,83 +296,133 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
-        ],
+//        [
+//            'type'         => 'navbar-search',
+//            'text'         => 'search',
+//            'topnav_right' => true,
+//        ],
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
         ],
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
+//        [
+//            'type' => 'sidebar-menu-search',
+//            'text' => 'search',
+//        ],
+//        [
+//            'text' => 'blog',
+//            'url'  => 'admin/blog',
+//            'can'  => 'manage-blog',
+//        ],
+//        [
+//            'text'        => 'pages',
+//            'url'         => 'admin/pages',
+//            'icon'        => 'far fa-fw fa-file',
+//            'label'       => 4,
+//            'label_color' => 'success',
+//        ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'users',
+            'url'  => '/dashboard/users',
             'icon' => 'fas fa-fw fa-user',
         ],
+//        [
+//            'text' => 'change_password',
+//            'url'  => '/dashboard/settings',
+//            'icon' => 'fas fa-fw fa-lock',
+//        ],
+        ['header' => 'movies'],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'genres',
+            'url'  => '/dashboard/genres',
+            'icon' => 'fas fa-fw fa-file',
+            'can'  => 'manage-movie',
         ],
         [
-            'text'    => 'multilevel',
+            'text' => 'types',
+            'url'  => '/dashboard/types',
+            'icon' => 'fas fa-fw fa-file',
+            'can'  => 'manage-movie',
+        ],
+        [
+            'text' => 'countries',
+            'url'  => '/dashboard/country-regions',
+            'icon' => 'fas fa-fw fa-file',
+            'can'  => 'manage-movie',
+        ],
+        [
+            'text' => 'companies',
+            'url'  => '/dashboard/companies',
+            'icon' => 'fas fa-fw fa-file',
+            'can'  => 'manage-movie',
+        ],
+        [
+            'text' => 'positions',
+            'url'  => '/dashboard/positions',
+            'icon' => 'fas fa-fw fa-file',
+            'can'  => 'manage-movie',
+        ],
+        [
+            'text'    => 'celebrities',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'celebrities',
+                    'url'  => '/dashboard/celebrities',
+                    'icon' => 'fas fa-fw fa-file',
+                    'can'  => 'manage-movie',
                 ],
+//                [
+//                    'text'    => 'level_one',
+//                    'url'     => '#',
+//                    'submenu' => [
+//                        [
+//                            'text' => 'level_two',
+//                            'url'  => '#',
+//                        ],
+//                        [
+//                            'text'    => 'level_two',
+//                            'url'     => '#',
+//                            'submenu' => [
+//                                [
+//                                    'text' => 'level_three',
+//                                    'url'  => '#',
+//                                ],
+//                                [
+//                                    'text' => 'level_three',
+//                                    'url'  => '#',
+//                                ],
+//                            ],
+//                        ],
+//                    ],
+//                ],
+//                [
+//                    'text' => 'level_one',
+//                    'url'  => '#',
+//                ],
+            ],
+        ],
+        [
+            'text'    => 'movies',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'films',
+                    'url'  => '/dashboard/films',
+                    'icon' => 'fas fa-fw fa-file',
+                    'can'  => 'manage-movie',
                 ],
             ],
         ],
-        ['header' => 'labels'],
+        [
+            'text' => 'languages',
+            'url'  => '/dashboard/languages',
+            'icon' => 'fas fa-fw fa-language',
+        ],
+        /*['header' => 'labels'],
         [
             'text'       => 'important',
             'icon_color' => 'red',
@@ -384,7 +437,7 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
-        ],
+        ],*/
     ],
 
     /*
@@ -443,17 +496,17 @@ return [
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
+                    'asset' => true,
+                    'location' => 'vendor/select2/js/select2.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
+                    'asset' => true,
+                    'location' => 'vendor/select2/css/select2.min.css',
                 ],
             ],
         ],
