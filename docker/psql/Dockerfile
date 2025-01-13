@@ -1,3 +1,3 @@
-FROM postgres:15.3-alpine
+FROM postgres:17.2-alpine
 
-#COPY ./dump.sql /docker-entrypoint-initdb.d/
+COPY ./db-cache/dump.sql /docker-entrypoint-initdb.d/

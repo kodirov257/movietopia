@@ -25,10 +25,6 @@ use Illuminate\Validation\Rule;
  * @property string $professions_uz_cy
  * @property string $professions_ru
  * @property string $professions_en
- * @property string $biography_uz
- * @property string $biography_uz_cy
- * @property string $biography_ru
- * @property string $biography_en
  * @property int $live_place
  * @property string $original_name
  * @property string $birth_name
@@ -80,10 +76,6 @@ class UpdateRequest extends FormRequest
             'professions_uz_cy' => 'nullable|string|max:255',
             'professions_ru' => 'required|string|max:255',
             'professions_en' => 'required|string|max:255',
-            'biography_uz' => 'nullable|string',
-            'biography_uz_cy' => 'nullable|string',
-            'biography_ru' => 'nullable|string',
-            'biography_en' => 'nullable|string',
             'live_place' => 'nullable|integer|min:1|exists:countries_regions,id',
             'original_name' => 'nullable|string|max:255',
             'birth_name' => 'nullable|string|max:255',
