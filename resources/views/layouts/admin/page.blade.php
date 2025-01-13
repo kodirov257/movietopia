@@ -1,5 +1,6 @@
 <x-admin-master-layout>
     @inject('layoutHelper', 'JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper')
+    @inject('preloaderHelper', 'JeroenNoten\LaravelAdminLte\Helpers\PreloaderHelper')
 
     @section('adminlte_css')
         @stack('css')
@@ -14,7 +15,7 @@
         <div class="wrapper">
 
             {{-- Preloader Animation --}}
-            @if($layoutHelper->isPreloaderEnabled())
+            @if($preloaderHelper->isPreloaderEnabled())
                 @include('partials.admin.common.preloader')
             @endif
 

@@ -33,6 +33,18 @@ Breadcrumbs::for('home', function (Crumbs $crumbs) {
 Breadcrumbs::for('login', function (Crumbs $crumbs) {
 });
 
+Breadcrumbs::for('register.show', function (Crumbs $crumbs) {
+});
+
+Breadcrumbs::for('password.email.request', function (Crumbs $crumbs) {
+});
+
+Breadcrumbs::for('two-factor-auth.create', function (Crumbs $crumbs) {
+});
+
+Breadcrumbs::for('two-factor-auth.store', function (Crumbs $crumbs) {
+});
+
 
 ################################### Admin
 

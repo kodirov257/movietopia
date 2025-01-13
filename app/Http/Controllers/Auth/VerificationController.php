@@ -6,11 +6,16 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\EmailVerificationRequest;
 use App\Models\User\User;
 use App\Services\Auth\AuthenticationService;
+use BaconQrCode\Renderer\Image\ImagickImageBackEnd;
+use BaconQrCode\Renderer\ImageRenderer;
+use BaconQrCode\Renderer\RendererStyle\RendererStyle;
+use BaconQrCode\Writer;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
+use PragmaRX\Google2FA\Google2FA;
 
 class VerificationController extends Controller
 {
@@ -45,15 +50,24 @@ class VerificationController extends Controller
         }
 
         if ($request->user->isAdmin()) {
-            $google2fa = app('pragmarx.google2fa');
+            $google2fa = app(Google2FA::class);
             $secret = $request->user->google2fa_secret;
-            $QR_Image = $google2fa->getQRCodeInline(
+            $g2faUrl = $google2fa->getQRCodeUrl(
                 config('app.name'),
                 $request->user->email,
                 $secret
             );
 
-            return view('auth.google2fa.register', ['QR_Image' => $QR_Image, 'secret' => $secret, 'email' => $request->user->email]);
+            $writer = new Writer(
+                new ImageRenderer(
+                    new RendererStyle(400),
+                    new ImagickImageBackEnd()
+                )
+            );
+
+            $qrcode_image = base64_encode($writer->writeString($g2faUrl));
+
+            return view('auth.google2fa.register', ['QR_Image' => $qrcode_image, 'secret' => $secret, 'email' => $request->user->email]);
         }
 
         return redirect()->route('login')->with('success', trans('auth.email_verified_login'));

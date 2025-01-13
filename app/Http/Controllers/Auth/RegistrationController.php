@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
+use PragmaRX\Google2FA\Google2FA;
 
 class RegistrationController extends Controller
 {
@@ -38,7 +39,7 @@ class RegistrationController extends Controller
                 'last_name' => 'nullable|string|max:50',
             ]);
 
-            $google2fa = app('pragmarx.google2fa');
+            $google2fa = app(Google2FA::class);
             $google2faSecret = $google2fa->generateSecretKey();
 
             event(new Registered($user = $this->authService->register(

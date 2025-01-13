@@ -17,7 +17,7 @@
 
                     <div class="card-body" style="text-align: center;">
                         <p>@lang('adminlte.google2fa_message1') <strong>{{ $secret }}</strong></p>
-                        <div><img src="{{ $QR_Image }}" alt="QRCode image"></div>
+                        <div><img src="data:image/png;base64, {{ $QR_Image }} " alt="QRCode image" style="width: 100%; height: 100%"></div>
                         <p>@lang('adminlte.google2fa_message2')</p>
                     </div>
                     <div>

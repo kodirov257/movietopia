@@ -2,17 +2,15 @@
 
 namespace App\Providers;
 
-use Illuminate\Contracts\Config\Repository;
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
+use JeroenNoten\LaravelAdminLte\AdminLte;
 use JeroenNoten\LaravelAdminLte\AdminLteServiceProvider as BaseServiceProvider;
 use JeroenNoten\LaravelAdminLte\Console\AdminLteInstallCommand;
 use JeroenNoten\LaravelAdminLte\Console\AdminLtePluginCommand;
+use JeroenNoten\LaravelAdminLte\Console\AdminLteRemoveCommand;
 use JeroenNoten\LaravelAdminLte\Console\AdminLteStatusCommand;
 use JeroenNoten\LaravelAdminLte\Console\AdminLteUpdateCommand;
-use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
-use JeroenNoten\LaravelAdminLte\Http\ViewComposers\AdminLteComposer;
 
 class AdminLteServiceProvider extends BaseServiceProvider
 {
@@ -30,14 +28,13 @@ class AdminLteServiceProvider extends BaseServiceProvider
         // container.
     }
 
-    public function boot(Factory $view, Dispatcher $events, Repository $config): void
+    public function boot(): void
     {
         $this->loadViews();
         $this->loadTranslations();
         $this->loadConfig();
-//        $this->registerCommands();
-        $this->registerViewComposers($view);
-//        $this->registerMenu($events, $config);
+        $this->registerCommands();
+        $this->registerViewComposers();
         $this->loadComponents();
         $this->loadRoutes();
     }
@@ -67,32 +64,22 @@ class AdminLteServiceProvider extends BaseServiceProvider
 
     private function registerCommands(): void
     {
-        $this->commands([
-            AdminLteInstallCommand::class,
-            AdminLteStatusCommand::class,
-            AdminLteUpdateCommand::class,
-            AdminLtePluginCommand::class,
-        ]);
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                AdminLteInstallCommand::class,
+                AdminLtePluginCommand::class,
+                AdminLteRemoveCommand::class,
+                AdminLteStatusCommand::class,
+                AdminLteUpdateCommand::class,
+            ]);
+        }
     }
 
-    private function registerViewComposers(Factory $view): void
+    private function registerViewComposers(): void
     {
-        $view->composer('layouts.admin.page', AdminLteComposer::class);
-    }
-
-    private static function registerMenu(Dispatcher $events, Repository $config): void
-    {
-        // Register a handler for the BuildingMenu event, this handler will add
-        // the menu defined on the config file to the menu builder instance.
-
-        $events->listen(
-            BuildingMenu::class,
-            function (BuildingMenu $event) use ($config) {
-                $menu = $config->get('adminlte.menu', []);
-                $menu = is_array($menu) ? $menu : [];
-                $event->menu->add(...$menu);
-            }
-        );
+        View::composer('layouts.admin.page', function (\Illuminate\View\View $v) {
+            $v->with('adminlte', $this->app->make(AdminLte::class));
+        });
     }
 
     private function loadComponents(): void

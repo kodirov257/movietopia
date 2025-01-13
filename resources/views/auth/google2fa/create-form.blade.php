@@ -47,7 +47,25 @@
                 @enderror
             </div>
 
+            {{-- Password field --}}
+            <div class="input-group mb-3">
+                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
+                       placeholder="{{ __('adminlte.password') }}">
 
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-lock {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                    </div>
+                </div>
+
+                @error('password')
+                <span class="invalid-feedback" role="alert">
+                        @foreach($errors->get('password') as $error)
+                        <strong>{{ $error }}</strong>
+                    @endforeach
+                    </span>
+                @enderror
+            </div>
 
             {{-- Setup field --}}
             <div class="row">
