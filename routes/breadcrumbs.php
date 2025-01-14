@@ -45,6 +45,9 @@ Breadcrumbs::for('two-factor-auth.create', function (Crumbs $crumbs) {
 Breadcrumbs::for('two-factor-auth.store', function (Crumbs $crumbs) {
 });
 
+Breadcrumbs::for('2fa', function (Crumbs $crumbs) {
+});
+
 
 ################################### Admin
 
